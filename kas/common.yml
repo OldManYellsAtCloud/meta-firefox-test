@@ -1,0 +1,21 @@
+header:
+  version: 11
+
+target: firefox-test-image
+
+local_conf_header:
+  meta-firefox-common: |
+    LICENSE_FLAGS_ACCEPTED += "commercial synaptics-killswitch"
+    RUST_PANIC_STRATEGY = "abort"
+    INHERIT += "own-mirrors rm_work"
+    BB_GENERATE_MIRROR_TARBALLS = "1"
+    PACKAGECONFIG:append:pn-qemu = " sdl "
+    PACKAGECONFIG:append:pn-qemu:class-nativesdk = " sdl "
+    PACKAGECONFIG:append:pn-qemu-system-native = " sdl "
+    DL_DIR = "/yocto/yocto_dl"
+    SSTATE_DIR = "/yocto/yocto_sstate"
+    SOURCE_MIRROR_URL = "http://192.168.1.130:8888/common"
+    EXTRA_IMAGE_FEATURES:append = " debug-tweaks "
+    INSANE_SKIP:pn-geckodriver:append = " src-uri-bad "
+    PREFERRED_VERSION_python3-typing-extensions = "4.12.2"
+    QB_CMDLINE_IP_SLIRP = "ip=192.168.7.4::192.168.7.3:255.255.255.0::eth0:off:8.8.8.8"
