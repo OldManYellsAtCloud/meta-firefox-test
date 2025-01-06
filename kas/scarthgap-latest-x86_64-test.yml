@@ -1,9 +1,9 @@
 header:
   version: 11
   includes:
-    - meta-firefox/kas/ff/latest.yml
-    - meta-firefox/kas/repos/scarthgap.yml
-    - meta-firefox/kas/common.yml
+    - kas/ff/latest.yml
+    - kas/repos/scarthgap.yml
+    - kas/common.yml
 
 machine: qemux86-64
 

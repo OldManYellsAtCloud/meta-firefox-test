@@ -4,7 +4,10 @@ header:
 repos:
   meta-browser:
     layers:
-      meta-firefox:
+      ../meta-browser/meta-firefox:
+  meta-firefox-test:
+    layers:
+      .:
   meta-oe:
     url: https://github.com/openembedded/meta-openembedded
     layers:

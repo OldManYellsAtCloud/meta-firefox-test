@@ -1,9 +1,9 @@
 header:
   version: 11
   includes:
-    - meta-firefox/kas/ff/latest.yml
-    - meta-firefox/kas/repos/styhead.yml
-    - meta-firefox/kas/common.yml
+    - kas/ff/latest.yml
+    - kas/repos/styhead.yml
+    - kas/common.yml
 
 machine: qemuriscv64
 

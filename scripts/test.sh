@@ -1,22 +1,25 @@
 #!/bin/bash
 
-if [ $? -ne 2 ]; then
+if [ $# -ne 3 ]; then
   echo Usage: $0 yocto_version arch ff_version
   echo E.g. $0 scarthgap x86_64 esr
+  exit 1
 fi
 
 declare -A arch_qemu_dict
 arch_qemu_dict["arm"]="qemuarm"
 arch_qemu_dict["aarch64"]="qemuarm64"
 arch_qemu_dict["riscv"]="qemuriscv64"
-arch_qemu_dict["x86_64"]="qemux86_64"
+arch_qemu_dict["x86_64"]="qemux86-64"
 
 yocto_version=$1
 arch=$2
 ff_version=$3
 
-cd /yocto/$yocto_version
-source poky/oe-init-build-env
+qemu_machine=${arch_qemu_dict[$arch]}
+
+cd /yocto/$yocto_version/poky
+source oe-init-build-env ../build
 
 coproc qemu { runqemu $qemu_machine; }
 
@@ -50,5 +53,7 @@ fi
 # move the test results over here
 mkdir -p /yocto/test-images/$yocto_version-$arch-$ff_version
 scp root@192.168.7.4:~/*xml /yocto/test-images/$yocto_version-$arch-$ff_version/
+
+ssh root@192.168.7.4 -o 'BatchMode=yes' shutdown -h now
 
 kill $qemu_PID

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $? -ne 3 ]; then
+if [ $# -ne 3 ]; then
   echo Usage: $0 yocto_version arch ff_version
   echo E.g. $0 kirkstone aarch64 esr
   exit 1
@@ -14,13 +14,14 @@ kas_file_name=$yocto_version-$ff_version-$arch
 
 # check if it needs to be built, if the flag has been set
 if [ -f /yocto/test-images/$kas_file_name ]; then
+  echo Image has been already built, exiting.
   exit 0
 fi
 
 cd /yocto/$yocto_version
 
-kas checkout --update ./meta-firefox-test/kas/$kas_file_name-test.yml
-kas shell ./meta-browser/meta-firefox/kas/$kas_file_name-test.yml -c "bitbake -c clean firefox firefox-test-image \
+kas checkout --update ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
+kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean firefox firefox-test-image \
          firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-in  firefox-l10n-ms     firefox-l10n-sr \
          firefox-l10n-af           firefox-l10n-en-us  firefox-l10n-hr     firefox-l10n-my     firefox-l10n-sv-se \
          firefox-l10n-an           firefox-l10n-eo     firefox-l10n-hsb    firefox-l10n-nb-no  firefox-l10n-szl \
@@ -41,7 +42,7 @@ kas shell ./meta-browser/meta-firefox/kas/$kas_file_name-test.yml -c "bitbake -c
          firefox-l10n-de           firefox-l10n-gl     firefox-l10n-lt     firefox-l10n-sk     firefox-l10n-dsb \
          firefox-l10n-gn           firefox-l10n-lv     firefox-l10n-sl     firefox-l10n-el     firefox-l10n-gu-in \
          firefox-l10n-mk           firefox-l10n-son    firefox-l10n-en-ca  firefox-l10n-he     firefox-l10n-mr \
-         firefox-l10n-sq"
-kas build ./meta-browser/meta-firefox/kas/$kas_file_name-test.yml
+         firefox-l10n-sq" || exit 1
+kas build ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
 
 touch /yocto/test-images/$kas_file_name

@@ -21,5 +21,7 @@ RDEPENDS:${PN} += " \
 "
 
 do_install:append(){
-  mv ${D}${PYTHON_SITEPACKAGES_DIR}/UNKNOWN-0.0.0.dist-info ${D}${PYTHON_SITEPACKAGES_DIR}/sniffio-${PV}.dist-info
+  if [ -d ${D}${PYTHON_SITEPACKAGES_DIR}/UNKNOWN-0.0.0.dist-info ]; then
+    mv ${D}${PYTHON_SITEPACKAGES_DIR}/UNKNOWN-0.0.0.dist-info ${D}${PYTHON_SITEPACKAGES_DIR}/sniffio-${PV}.dist-info
+  fi
 }

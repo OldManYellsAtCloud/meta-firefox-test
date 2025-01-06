@@ -8,7 +8,7 @@ xset s off
 xset s noblank
 xset -dpms
 
-if [ $? -ne 1 ]; then
+if [ $# -ne 1 ]; then
   echo Missing test folder argument!
   exit 1
 fi

@@ -1,8 +1,8 @@
 header:
   version: 11
   includes:
-    - meta-firefox/kas/repos/common-repos.yml
-    - meta-firefox/kas/repos/rust.yml
+    - kas/repos/common-repos.yml
+    - kas/repos/rust.yml
 
 repos:
   meta-oe:

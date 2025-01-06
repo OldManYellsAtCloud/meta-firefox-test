@@ -20,5 +20,5 @@ inherit cargo
 # it comes to updating it.
 # cargo-update-recipe-crates
 
-UNPACKDIR = "${S}"
+# UNPACKDIR = "${S}"
 # CARGO_SRC_DIR = "${PN}-${PV}"

@@ -1,6 +1,6 @@
 require recipes-sato/images/core-image-sato.bb
 
-IMAGE_INSTALL += "firefox"
+IMAGE_INSTALL += "firefox firefox-tests regular-noto-fonts"
 IMAGE_INSTALL += "firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-in  firefox-l10n-ms     firefox-l10n-sr \
                   firefox-l10n-af           firefox-l10n-en-us  firefox-l10n-hr     firefox-l10n-my     firefox-l10n-sv-se \
                   firefox-l10n-an           firefox-l10n-eo     firefox-l10n-hsb    firefox-l10n-nb-no  firefox-l10n-szl \
@@ -25,7 +25,6 @@ IMAGE_INSTALL += "firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-
 
 IMAGE_INSTALL += "connman-client strace"
 
-IMAGE_INSTALL:append:star64 = " visionfive2-pvr-graphics "
 IMAGE_INSTALL:remove = " l3afpad pcmanfm gtk-play "
 
 QB_MEM = "-m 1024"

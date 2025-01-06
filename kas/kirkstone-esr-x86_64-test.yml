@@ -1,9 +1,9 @@
 header:
   version: 11
   includes:
-    - meta-firefox/kas/ff/esr.yml
-    - meta-firefox/kas/repos/kirkstone.yml
-    - meta-firefox/kas/common.yml
+    - kas/ff/esr.yml
+    - kas/repos/kirkstone.yml
+    - kas/common.yml
 
 machine: qemux86-64
 

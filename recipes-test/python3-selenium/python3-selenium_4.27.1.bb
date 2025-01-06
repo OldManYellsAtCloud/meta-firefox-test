@@ -21,7 +21,9 @@ inherit python_setuptools3_rust
 INSANE_SKIP:${PN} = "already-stripped"
 
 do_install:append(){
-  mv ${D}${PYTHON_SITEPACKAGES_DIR}/UNKNOWN-0.0.0.dist-info ${D}${PYTHON_SITEPACKAGES_DIR}/selenium-${PV}.dist-info
+  if [ -d ${D}${PYTHON_SITEPACKAGES_DIR}/UNKNOWN-0.0.0.dist-info ]; then
+    mv ${D}${PYTHON_SITEPACKAGES_DIR}/UNKNOWN-0.0.0.dist-info ${D}${PYTHON_SITEPACKAGES_DIR}/selenium-${PV}.dist-info
+  fi
   cd ${S}/selenium
   find . -type f -exec install -D -m 0644 {} ${D}${PYTHON_SITEPACKAGES_DIR}/selenium/{} \;
 }

@@ -1,9 +1,9 @@
 header:
   version: 11
   includes:
-    - meta-firefox/kas/ff/latest.yml
-    - meta-firefox/kas/repos/walnascar.yml
-    - meta-firefox/kas/common.yml
+    - kas/ff/latest.yml
+    - kas/repos/walnascar.yml
+    - kas/common.yml
 
 machine: qemuarm
 

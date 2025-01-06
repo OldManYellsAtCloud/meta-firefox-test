@@ -1,7 +1,7 @@
 header:
   version: 11
   includes:
-    - meta-firefox/kas/repos/common-repos.yml
+    - kas/repos/common-repos.yml
 
 repos:
   meta-oe:
