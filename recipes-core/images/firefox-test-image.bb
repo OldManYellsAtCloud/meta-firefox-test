@@ -27,4 +27,4 @@ IMAGE_INSTALL += "connman-client strace"
 
 IMAGE_INSTALL:remove = " l3afpad pcmanfm gtk-play "
 
-QB_MEM = "-m 1024"
+QB_MEM = "-m 2048"
