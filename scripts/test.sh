@@ -51,9 +51,9 @@ if [ ! -e /yocto/test-images/language-test ]; then
 fi
 
 # move the test results over here
-mkdir -p /yocto/test-images/$yocto_version-$arch-$ff_version
-scp root@192.168.7.4:~/*xml /yocto/test-images/$yocto_version-$arch-$ff_version/
+mkdir -p /yocto/$yocto_version/meta-browser/meta-firefox/test-results
 
+scp root@192.168.7.4:~/*xml /yocto/$yocto_version/meta-browser/meta-firefox/test-results
 ssh root@192.168.7.4 -o 'BatchMode=yes' shutdown -h now
 
 kill $qemu_PID
