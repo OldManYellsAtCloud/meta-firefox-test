@@ -30,7 +30,7 @@ IMAGE_INSTALL:remove = " l3afpad pcmanfm gtk-play "
 QB_MEM = "-m 2048"
 
 fix_resolution(){
-  sed -i 's/Modes.*/Modes \"1024x600\"/g' ${IMAGE_ROOTFS}${sysconfdir}/X11/xorg.conf
+  sed -i 's/Modes.*/Modes \"1024x600\"/g' ${IMAGE_ROOTFS}${sysconfdir}/X11/xorg.conf || true
 }
 
 ROOTFS_POSTPROCESS_COMMAND += ";fix_resolution;"
