@@ -5,7 +5,7 @@ header:
     - kas/repos/walnascar.yml
     - kas/common.yml
 
-machine: qemursicv64
+machine: qemuriscv64
 
 local_conf_header:
   walnascar-latest-riscv: |
