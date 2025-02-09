@@ -10,7 +10,7 @@ repos:
   poky:
     refspec: "6bd3969d32730538608e680653e032e66958fe84"
   meta-clang:
-    refspec: "2ed384c64e206016c628451672c688e59944381b"
+    refspec: "fabeeadc6a1cbf1a81fbdb7dc9fa4022c7e5e851"
   meta-lts-mixins:
     refspec: "9bc06b6a761f28cf82aae8a99afe27ed5e2ce4c9"
 
