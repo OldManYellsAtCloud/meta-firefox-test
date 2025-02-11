@@ -9,7 +9,7 @@ repos:
   poky:
     refspec: master
   meta-clang:
-    refspec: "9b9dbfb472d2d409fff734f7b8339b288e037e61"
+    refspec: "93dec321980091b8abfa1f7d72c50b844c63167c"
 
 local_conf_header:
   walnascar: |
