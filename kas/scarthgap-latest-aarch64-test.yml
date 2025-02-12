@@ -3,22 +3,6 @@ header:
   includes:
     - kas/ff/latest.yml
     - kas/repos/scarthgap.yml
-    - kas/repos/rpi.yml
     - kas/common.yml
 
 machine: qemuarm64
-
-repos:
-  meta-rpi:
-    refspec: "1879cb831f4ea3e532cb5ce9fa0f32be917e8fa3"
-
-local_conf_header:
-  scarthgap-latest-aarch64: |
-    REQUIRED_VERSION_rust = "1.81.0"
-    REQUIRED_VERSION_rust-native = "1.81.0"
-    REQUIRED_VERSION_libstd-rs = "1.81.0"
-    REQUIRED_VERSION_cargo = "1.81.0"
-    REQUIRED_VERSION_cargo-native = "1.81.0"
-    REQUIRED_VERSION_rust-llvm = "1.81.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.81.0"
-    BBMASK += "poky/meta/recipes-devtools/rust"
