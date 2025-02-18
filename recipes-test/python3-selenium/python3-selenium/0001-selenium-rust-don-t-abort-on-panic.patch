@@ -1,0 +1,27 @@
+From 4ebeb82f6343e17f806de3beb738df3701ed3298 Mon Sep 17 00:00:00 2001
+From: Gyorgy Sarvari <skandigraun@gmail.com>
+Date: Tue, 18 Feb 2025 18:16:48 +0100
+Subject: [PATCH] selenium: rust - don't abort on panic
+
+The Rust in Yocto needs to be compiled in a special way (with RUST_PANIC_STRATEGY = "abort"
+in local.conf) to make abort-on-panic work. Otherwise it fails with the following error:
+
+error: the crate `panic_abort` does not have the panic strategy `abort`
+
+Upstream-Status: Inappropriate [oe-specific]
+---
+ Cargo.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f5854e1..a1e4e5d 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -45,7 +45,6 @@ is_executable = "1.0.4"
+ opt-level = 'z'     # Optimize for size
+ lto = true          # Enable Link Time Optimization
+ codegen-units = 1   # Reduce number of codegen units to increase optimizations
+-panic = 'abort'     # Abort on panic
+ strip = true        # Strip symbols from binary
+ 
+ [profile.dev]
