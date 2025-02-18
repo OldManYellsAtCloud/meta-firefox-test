@@ -6,7 +6,6 @@ target: firefox-test-image
 local_conf_header:
   meta-firefox-common: |
     LICENSE_FLAGS_ACCEPTED += "commercial"
-    RUST_PANIC_STRATEGY = "abort"
     INHERIT += "own-mirrors rm_work"
     BB_GENERATE_MIRROR_TARBALLS = "1"
     PACKAGECONFIG:append:pn-qemu = " sdl "
