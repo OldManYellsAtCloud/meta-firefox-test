@@ -13,7 +13,6 @@ local_conf_header:
     PACKAGECONFIG:append:pn-qemu-system-native = " sdl "
     DL_DIR = "/yocto/yocto_dl"
     SSTATE_DIR = "/yocto/yocto_sstate_ff"
-    SSTATE_MIRRORS = "file://.* file:///yocto/yocto_sstate/PATH"
     SOURCE_MIRROR_URL = "http://192.168.1.130:8888/common"
     EXTRA_IMAGE_FEATURES:append = " debug-tweaks "
     INSANE_SKIP:pn-geckodriver:append = " src-uri-bad "
