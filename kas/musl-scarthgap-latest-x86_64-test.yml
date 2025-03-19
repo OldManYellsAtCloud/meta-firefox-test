@@ -4,6 +4,6 @@ header:
     - kas/ff/latest.yml
     - kas/repos/scarthgap.yml
     - kas/common.yml
-    - musl.yml
+    - kas/musl.yml
 
 machine: qemux86-64

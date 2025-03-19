@@ -4,6 +4,6 @@ header:
     - kas/ff/esr.yml
     - kas/repos/styhead.yml
     - kas/common.yml
-    - musl.yml
+    - kas/musl.yml
 
 machine: qemuriscv64
