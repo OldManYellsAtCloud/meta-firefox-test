@@ -1,0 +1,9 @@
+header:
+  version: 11
+  includes:
+    - kas/ff/latest.yml
+    - kas/repos/kirkstone.yml
+    - kas/common.yml
+    - musl.yml
+
+machine: qemuarm64

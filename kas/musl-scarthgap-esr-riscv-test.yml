@@ -1,0 +1,9 @@
+header:
+  version: 11
+  includes:
+    - kas/ff/esr.yml
+    - kas/repos/scarthgap.yml
+    - kas/common.yml
+    - musl
+
+machine: qemuriscv64

@@ -1,0 +1,9 @@
+header:
+  version: 11
+  includes:
+    - kas/ff/latest.yml
+    - kas/repos/walnascar.yml
+    - kas/common.yml
+    - musl
+
+machine: qemuarm64

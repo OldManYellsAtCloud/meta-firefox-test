@@ -9,8 +9,15 @@ fi
 yocto_version=$1
 arch=$2
 ff_version=$3
+libc_flavour=$4
 
 kas_file_name=$yocto_version-$ff_version-$arch
+
+if [ -n "$libc_flavour"]; then
+  kas_file_name=$libc_flavour-$kas_file_name
+else
+  kas_file_name=glibc-$kas_file_name
+fi
 
 # check if it needs to be built, if the flag has been set
 if [ -f /yocto/test-images/$kas_file_name ]; then
