@@ -4,6 +4,6 @@ header:
     - kas/ff/latest.yml
     - kas/repos/styhead.yml
     - kas/common.yml
-    - musl
+    - musl.yml
 
 machine: qemuarm64
