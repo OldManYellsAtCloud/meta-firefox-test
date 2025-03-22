@@ -15,13 +15,20 @@ arch_qemu_dict["x86_64"]="qemux86-64"
 yocto_version=$1
 arch=$2
 ff_version=$3
+libc_flavour=$4
+
+if [ -n "$libc_flavour" ]; then
+  qemu_conf=glibc-$yocto_version-$ff_version-$arch.qemuboot.conf
+else
+  qemu_conf=$libc_flavour-$yocto_version-$ff_version-$arch.qemuboot.conf
+fi
 
 qemu_machine=${arch_qemu_dict[$arch]}
 
 cd /yocto/$yocto_version/poky
 source oe-init-build-env ../build
 
-coproc qemu { runqemu $qemu_machine; }
+coproc qemu { runqemu tmp/deploy/images/$qemu_machine/$qemu_conf; }
 
 TIMEOUT=60
 QEMU_ONLINE="false"
