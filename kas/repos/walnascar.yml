@@ -8,6 +8,10 @@ repos:
     refspec: master
   poky:
     refspec: master
+    patches:
+      properties:
+        repo: meta-firefox-test
+        path: kas/walnascar-poky-patches
   meta-clang:
     refspec: "93dec321980091b8abfa1f7d72c50b844c63167c"
 
@@ -16,10 +20,10 @@ local_conf_header:
     BBMASK += "meta-clang/recipes-core/busybox"
     IMAGE_FEATURES:remove = " debug-tweaks "
     IMAGE_FEATURES:append = " allow-empty-password empty-root-password allow-root-login post-install-logging "
-    REQUIRED_VERSION_rust = "1.82.0"
-    REQUIRED_VERSION_rust-native = "1.82.0"
-    REQUIRED_VERSION_libstd-rs = "1.82.0"
-    REQUIRED_VERSION_cargo = "1.82.0"
-    REQUIRED_VERSION_cargo-native = "1.82.0"
-    REQUIRED_VERSION_rust-llvm = "1.82.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.82.0"
+    REQUIRED_VERSION_rust = "1.83.0"
+    REQUIRED_VERSION_rust-native = "1.83.0"
+    REQUIRED_VERSION_libstd-rs = "1.83.0"
+    REQUIRED_VERSION_cargo = "1.83.0"
+    REQUIRED_VERSION_cargo-native = "1.83.0"
+    REQUIRED_VERSION_rust-llvm = "1.83.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.83.0"
