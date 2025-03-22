@@ -8,3 +8,7 @@ header:
 
 
 machine: qemuarm
+
+local_conf_header:
+  image_name: |
+    IMAGE_NAME = "musl-styhead-latest-arm"

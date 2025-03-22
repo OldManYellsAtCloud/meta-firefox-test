@@ -7,3 +7,7 @@ header:
     - kas/musl.yml
 
 machine: qemux86-64
+
+local_conf_header:
+  image_name: |
+    IMAGE_NAME = "musl-kirkstone-esr-x86_64"

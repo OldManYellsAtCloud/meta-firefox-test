@@ -7,3 +7,8 @@ header:
     - kas/musl.yml
 
 machine: qemux86-64
+
+
+local_conf_header:
+  image_name: |
+    IMAGE_NAME = "musl-scarthgap-latest-x86_64"

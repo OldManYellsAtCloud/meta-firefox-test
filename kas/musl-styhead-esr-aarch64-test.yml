@@ -7,3 +7,8 @@ header:
     - kas/musl.yml
 
 machine: qemuarm64
+
+
+local_conf_header:
+  image_name: |
+    IMAGE_NAME = "musl-styhead-esr-aarch64"

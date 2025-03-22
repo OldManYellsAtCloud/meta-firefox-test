@@ -6,3 +6,7 @@ header:
     - kas/common.yml
 
 machine: qemuarm
+
+local_conf_header:
+  image_name: |
+    IMAGE_NAME = "glibc-kirkstone-latest-arm"
