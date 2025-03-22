@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ $# -ne 3 ]; then
-  echo Usage: $0 yocto_version arch ff_version
+if [ $# -le 3 ]; then
+  echo Usage: $0 yocto_version arch ff_version [libc_flavour]
   echo E.g. $0 scarthgap x86_64 esr
   exit 1
 fi
