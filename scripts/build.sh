@@ -13,7 +13,7 @@ libc_flavour=$4
 
 kas_file_name=$yocto_version-$ff_version-$arch
 
-if [ -n "$libc_flavour"]; then
+if [ -n "$libc_flavour" ]; then
   kas_file_name=$libc_flavour-$kas_file_name
 else
   kas_file_name=glibc-$kas_file_name
