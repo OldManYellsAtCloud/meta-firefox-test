@@ -6,6 +6,12 @@ if [ $# -le 3 ]; then
   exit 1
 fi
 
+declare -A arch_qemu_dict
+arch_qemu_dict["arm"]="qemuarm"
+arch_qemu_dict["aarch64"]="qemuarm64"
+arch_qemu_dict["riscv"]="qemuriscv64"
+arch_qemu_dict["x86_64"]="qemux86-64"
+
 yocto_version=$1
 arch=$2
 ff_version=$3
@@ -20,7 +26,7 @@ else
 fi
 
 # check if it needs to be built, if the flag has been set
-if [ -f /yocto/test-images/$kas_file_name ]; then
+if [ -d /yocto/test-images/$kas_file_name ]; then
   echo Image has been already built, exiting.
   exit 0
 fi
@@ -52,4 +58,6 @@ kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean f
          firefox-l10n-sq nss-3.108" || exit 1
 kas build ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
 
-touch /yocto/test-images/$kas_file_name
+qemu_machine=${arch_qemu_dict[$arch]}
+
+cp -r ./tmp/deploy/images/$qemu_machine /yocto/test-images/$kas_file_name

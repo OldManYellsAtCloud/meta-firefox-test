@@ -18,17 +18,25 @@ ff_version=$3
 libc_flavour=$4
 
 if [ -n "$libc_flavour" ]; then
-  qemu_conf=glibc-$yocto_version-$ff_version-$arch.qemuboot.conf
+  image_folder=glibc-$yocto_version-$ff_version-$arch
 else
-  qemu_conf=$libc_flavour-$yocto_version-$ff_version-$arch.qemuboot.conf
+  image_folder=$libc_flavour-$yocto_version-$ff_version-$arch
 fi
 
 qemu_machine=${arch_qemu_dict[$arch]}
 
+if [ ! -d /yocto/test-images/$image_folder ]; then
+  echo $image_folder image was not created!
+  exit 1
+fi
+
 cd /yocto/$yocto_version/poky
 source oe-init-build-env ../build
 
-coproc qemu { runqemu tmp/deploy/images/$qemu_machine/$qemu_conf; }
+rm -rf tmp/deploy/images/$qemu_machine
+cp -r /yocto/test-images/$image_folder tmp/deploy/images/$qemu_machine
+
+coproc qemu { runqemu $qemu_machine; }
 
 TIMEOUT=60
 QEMU_ONLINE="false"
