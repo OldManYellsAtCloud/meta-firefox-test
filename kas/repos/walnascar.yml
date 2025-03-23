@@ -5,9 +5,9 @@ header:
 
 repos:
   meta-oe:
-    refspec: master
+    refspec: "2920d4909236106e1a36d56b3b20762a308ba3d4"
   poky:
-    refspec: master
+    refspec: "769a4479e123a5c2951eab8915cbd2b29d82c7f9"
     patches:
       properties:
         repo: meta-firefox-test
