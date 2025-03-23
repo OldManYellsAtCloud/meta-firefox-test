@@ -10,7 +10,7 @@ declare -A arch_qemu_dict
 arch_qemu_dict["arm"]="qemuarm"
 arch_qemu_dict["aarch64"]="qemuarm64"
 arch_qemu_dict["riscv"]="qemuriscv64"
-arch_qemu_dict["x86_64"]="qemux86-64"
+arch_qemu_dict["x86-64"]="qemux86-64"
 
 yocto_version=$1
 arch=$2
