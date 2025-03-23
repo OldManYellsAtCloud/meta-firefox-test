@@ -60,4 +60,4 @@ kas build ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
 
 qemu_machine=${arch_qemu_dict[$arch]}
 
-cp -r ./tmp/deploy/images/$qemu_machine /yocto/test-images/$kas_file_name
+cp -r ./build/tmp/deploy/images/$qemu_machine /yocto/test-images/$kas_file_name
