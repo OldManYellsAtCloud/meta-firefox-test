@@ -17,3 +17,4 @@ local_conf_header:
     EXTRA_IMAGE_FEATURES:append = " debug-tweaks "
     INSANE_SKIP:pn-geckodriver:append = " src-uri-bad "
     PREFERRED_VERSION_python3-typing-extensions = "4.12.2"
+    IMAGE_FSTYPES:remove = "wic.qcow2"
