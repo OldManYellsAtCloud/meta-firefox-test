@@ -30,6 +30,11 @@ if [ ! -d /yocto/test-images/$image_folder ]; then
   exit 1
 fi
 
+if [ -f /yocto/test-images/$image_folder.done ]; then
+  echo $image_folder test done already, skipping now.
+  exit 0
+fi
+
 cd /yocto/$yocto_version/poky
 source oe-init-build-env ../build
 
@@ -71,6 +76,8 @@ if [ ! -e /yocto/test-images/language-test ]; then
   ssh root@$guest_side_ip -o 'BatchMode=yes' /home/root/run.sh language
   touch /yocto/test-images/language-test
 fi
+
+touch /yocto/test-images/$image_folder.done
 
 # move the test results over here
 mkdir -p /yocto/$yocto_version/meta-browser/meta-firefox/test-results
