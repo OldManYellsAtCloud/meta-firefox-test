@@ -17,7 +17,7 @@ arch=$2
 ff_version=$3
 libc_flavour=$4
 
-if [ -n "$libc_flavour" ]; then
+if [ -z "$libc_flavour" ]; then
   image_folder=glibc-$yocto_version-$ff_version-$arch
 else
   image_folder=$libc_flavour-$yocto_version-$ff_version-$arch
