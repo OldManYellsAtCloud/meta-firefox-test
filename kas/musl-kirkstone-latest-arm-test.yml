@@ -11,3 +11,4 @@ machine: qemuarm
 local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-kirkstone-latest-arm"
+    BBMASK += "meta-lts-mixins/recipes-devtools/rust"

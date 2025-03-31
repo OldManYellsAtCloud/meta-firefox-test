@@ -12,3 +12,4 @@ machine: qemuarm
 local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-scarthgap-latest-arm"
+    BBMASK += "meta-lts-mixins/recipes-devtools/rust"

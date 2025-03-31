@@ -12,3 +12,4 @@ machine: qemuriscv64
 local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-scarthgap-latest-riscv"
+    BBMASK += "meta-lts-mixins/recipes-devtools/rust"

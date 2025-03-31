@@ -10,3 +10,4 @@ machine: qemuarm
 local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-styhead-esr-arm"
+    BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"

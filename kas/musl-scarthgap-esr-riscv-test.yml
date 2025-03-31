@@ -12,3 +12,4 @@ machine: qemuriscv64
 local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-scarthgap-esr-riscv"
+    BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"

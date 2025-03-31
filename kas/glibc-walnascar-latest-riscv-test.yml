@@ -10,3 +10,4 @@ machine: qemuriscv64
 local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-walnascar-latest-riscv"
+    BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
