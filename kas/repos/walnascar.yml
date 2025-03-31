@@ -13,7 +13,7 @@ repos:
         repo: meta-firefox-test
         path: kas/walnascar-poky-patches
   meta-clang:
-    refspec: "93dec321980091b8abfa1f7d72c50b844c63167c"
+    refspec: "11b169e210c3198d95ce5e9c95da4abfe5d8e39a"
 
 local_conf_header:
   walnascar: |
