@@ -20,3 +20,4 @@ local_conf_header:
     REQUIRED_VERSION_cargo-native = "1.82.0"
     REQUIRED_VERSION_rust-llvm = "1.82.0"
     REQUIRED_VERSION_rust-llvm-native = "1.82.0"
+    DATA_LAYOUT[aarch64] = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128-Fn32"
