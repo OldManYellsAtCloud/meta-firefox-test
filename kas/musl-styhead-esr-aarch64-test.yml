@@ -13,3 +13,10 @@ local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-styhead-esr-aarch64"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
+    REQUIRED_VERSION_rust = "1.79.0"
+    REQUIRED_VERSION_rust-native = "1.79.0"
+    REQUIRED_VERSION_libstd-rs = "1.79.0"
+    REQUIRED_VERSION_cargo = "1.79.0"
+    REQUIRED_VERSION_cargo-native = "1.79.0"
+    REQUIRED_VERSION_rust-llvm = "1.79.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.79.0"
