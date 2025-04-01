@@ -4,7 +4,7 @@ header:
     - kas/ff/esr.yml
     - kas/repos/kirkstone.yml
     - kas/common.yml
-    - kas/musl.yml
+    - kas/repos/musl.yml
 
 machine: qemuarm64
 

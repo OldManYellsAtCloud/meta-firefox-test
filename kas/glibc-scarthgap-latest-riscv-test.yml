@@ -4,7 +4,7 @@ header:
     - kas/ff/latest.yml
     - kas/repos/scarthgap.yml
     - kas/common.yml
-    - kas/rust.yml
+    - kas/repos/rust.yml
 
 machine: qemuriscv64
 
@@ -19,4 +19,3 @@ local_conf_header:
     REQUIRED_VERSION_cargo-native = "1.82.0"
     REQUIRED_VERSION_rust-llvm = "1.82.0"
     REQUIRED_VERSION_rust-llvm-native = "1.82.0"
-    DATA_LAYOUT[riscv64gc] = "e-m:e-p:64:64-i64:64-i128:128-n32:64-S128"
