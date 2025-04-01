@@ -10,7 +10,7 @@ machine: qemux86-64
 local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-styhead-latest-x86_64"
-    BBMASK += "meta-lts-mixins/recipes-devtools/rust"
+    BBMASK += "poky/meta/recipes-devtools/rust"
     REQUIRED_VERSION_rust = "1.82.0"
     REQUIRED_VERSION_rust-native = "1.82.0"
     REQUIRED_VERSION_libstd-rs = "1.82.0"
