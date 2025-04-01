@@ -5,9 +5,9 @@ header:
     - kas/repos/scarthgap.yml
     - kas/common.yml
     - kas/musl.yml
+    - kas/rust.yml
 
 machine: qemuarm
-
 
 local_conf_header:
   image_name: |

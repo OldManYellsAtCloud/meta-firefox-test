@@ -4,6 +4,7 @@ header:
     - kas/ff/latest.yml
     - kas/repos/scarthgap.yml
     - kas/common.yml
+    - kas/rust.yml
 
 machine: qemux86-64
 

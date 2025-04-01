@@ -5,6 +5,7 @@ header:
     - kas/repos/kirkstone.yml
     - kas/common.yml
     - kas/musl.yml
+    - kas/rust.yml
 
 machine: qemuarm
 
