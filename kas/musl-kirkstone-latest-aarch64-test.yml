@@ -21,3 +21,5 @@ local_conf_header:
     REQUIRED_VERSION_rust-llvm-native = "1.82.0"
     RUST_VERSION = "1.82.0"
     RUST_LIBC = "${TCLIBC}"
+    RUST_HOST = "${BUILD_SYS}"
+    RUST_TARGET = "${TARGET_SYS}"
