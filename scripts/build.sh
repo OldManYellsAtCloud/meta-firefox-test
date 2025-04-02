@@ -40,7 +40,7 @@ else
 fi
 
 kas checkout --update ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
-kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean rust-native cargo-native firefox \
+kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean rust-native cargo-native libstd-rs firefox \
          firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-in  firefox-l10n-ms     firefox-l10n-sr \
          firefox-l10n-af           firefox-l10n-en-us  firefox-l10n-hr     firefox-l10n-my     firefox-l10n-sv-se \
          firefox-l10n-an           firefox-l10n-eo     firefox-l10n-hsb    firefox-l10n-nb-no  firefox-l10n-szl \
