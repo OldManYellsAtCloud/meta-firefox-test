@@ -4,13 +4,18 @@ header:
     - kas/ff/esr.yml
     - kas/repos/kirkstone.yml
     - kas/common.yml
+    - kas/repos/lts-mixins.yml
+
+
+repos:
+  meta-lts-mixins:
+    refspec: "9bc06b6a761f28cf82aae8a99afe27ed5e2ce4c9"
 
 machine: qemuarm
 
 local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-kirkstone-esr-arm"
-    BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
     REQUIRED_VERSION_rust = "1.80.1"
     REQUIRED_VERSION_rust-native = "1.80.1"
     REQUIRED_VERSION_libstd-rs = "1.80.1"

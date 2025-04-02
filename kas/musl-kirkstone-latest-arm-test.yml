@@ -12,7 +12,6 @@ machine: qemuarm
 local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-kirkstone-latest-arm"
-    BBMASK += "meta-lts-mixins"
     REQUIRED_VERSION_rust = "1.82.0"
     REQUIRED_VERSION_rust-native = "1.82.0"
     REQUIRED_VERSION_libstd-rs = "1.82.0"

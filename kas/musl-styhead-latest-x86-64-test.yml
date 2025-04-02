@@ -5,6 +5,7 @@ header:
     - kas/repos/styhead.yml
     - kas/common.yml
     - kas/musl.yml
+    - kas/repos/rust.yml
 
 machine: qemux86-64
 
@@ -19,3 +20,10 @@ local_conf_header:
     REQUIRED_VERSION_cargo-native = "1.82.0"
     REQUIRED_VERSION_rust-llvm = "1.82.0"
     REQUIRED_VERSION_rust-llvm-native = "1.82.0"
+
+repos:
+  meta-rust:
+    patches:
+      properties:
+        repo: meta-firefox-test
+        path: kas/meta-rust-styhead-patches
