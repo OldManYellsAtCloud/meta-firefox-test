@@ -4,7 +4,6 @@ header:
     - kas/ff/latest.yml
     - kas/repos/scarthgap.yml
     - kas/common.yml
-    - kas/repos/rust.yml
 
 machine: qemux86-64
 
@@ -18,7 +17,10 @@ local_conf_header:
     REQUIRED_VERSION_cargo-native = "1.82.0"
     REQUIRED_VERSION_rust-llvm = "1.82.0"
     REQUIRED_VERSION_rust-llvm-native = "1.82.0"
-    RUST_VERSION = "1.82.0"
-    RUST_LIBC = "${TCLIBC}"
-    RUST_HOST = "${BUILD_SYS}"
-    RUST_TARGET = "${TARGET_SYS}"
+
+repos:
+  meta-lts-mixins:
+    url: https://github.com/OldManYellsAtCloud/meta-lts-mixins.git
+    refspec: "de5765a6ca52553b0f487817e8f6d188fd3f27d5"
+    layers:
+      .:
