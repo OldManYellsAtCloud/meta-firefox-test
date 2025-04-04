@@ -43,7 +43,7 @@ cp -r /yocto/test-images/$image_folder tmp/deploy/images/$qemu_machine
 
 coproc qemu { runqemu $qemu_machine; }
 
-TIMEOUT=60
+TIMEOUT=100
 QEMU_ONLINE="false"
 while [ $TIMEOUT -gt 0 -a "$QEMU_ONLINE" = "false" ]; do
   tap_iface_name=`ip link show | grep tap | tail -n 1 | cut -d: -f2`
