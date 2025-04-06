@@ -12,6 +12,9 @@ arch_qemu_dict["aarch64"]="qemuarm64"
 arch_qemu_dict["riscv"]="qemuriscv64"
 arch_qemu_dict["x86-64"]="qemux86-64"
 
+declare -A qemu_params_dict
+qemu_params_dict["x86-64"]="kvm"
+
 yocto_version=$1
 arch=$2
 ff_version=$3
@@ -24,6 +27,7 @@ else
 fi
 
 qemu_machine=${arch_qemu_dict[$arch]}
+qemu_params="${qemu_params_dict[$arch]}"
 
 if [ ! -d /yocto/test-images/$image_folder ]; then
   echo $image_folder image was not created!
@@ -41,7 +45,7 @@ source oe-init-build-env ../build
 rm -rf tmp/deploy/images/$qemu_machine
 cp -r /yocto/test-images/$image_folder tmp/deploy/images/$qemu_machine
 
-coproc qemu { runqemu $qemu_machine; }
+coproc qemu { runqemu "$qemu_machine $qemu_params"; }
 
 TIMEOUT=100
 QEMU_ONLINE="false"
