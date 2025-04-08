@@ -2,6 +2,7 @@ header:
   version: 11
   includes:
     - kas/repos/common-repos.yml
+    - kas/repos/lts-mixins.yml
 
 repos:
   meta-oe:
@@ -14,9 +15,21 @@ repos:
         path: kas/scarthgap-poky-patches
   meta-clang:
     refspec: "989ff6a4e7db59f01d511727135610006124ead2"
-
+  meta-lts-mixins:
+    refspec: "1793a1b8fc92cf8688c72b7fd4181e3a2f5ade55"
+    patches:
+      properties:
+        repo: meta-firefox-test
+        path: kas/scarthgap-lts-mixins-patches
 
 local_conf_header:
   scarthgap: |
     BBMASK += "poky/meta/recipes-devtools/rust"
     BBMASK += "meta-lts-mixins/recipes-gnome/librsvg"
+    REQUIRED_VERSION_rust = "1.85.1"
+    REQUIRED_VERSION_rust-native = "1.85.1"
+    REQUIRED_VERSION_libstd-rs = "1.85.1"
+    REQUIRED_VERSION_cargo = "1.85.1"
+    REQUIRED_VERSION_cargo-native = "1.85.1"
+    REQUIRED_VERSION_rust-llvm = "1.85.1"
+    REQUIRED_VERSION_rust-llvm-native = "1.85.1"

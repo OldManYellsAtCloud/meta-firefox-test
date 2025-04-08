@@ -10,17 +10,3 @@ machine: qemuriscv64
 local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-scarthgap-latest-riscv"
-    REQUIRED_VERSION_rust = "1.82.0"
-    REQUIRED_VERSION_rust-native = "1.82.0"
-    REQUIRED_VERSION_libstd-rs = "1.82.0"
-    REQUIRED_VERSION_cargo = "1.82.0"
-    REQUIRED_VERSION_cargo-native = "1.82.0"
-    REQUIRED_VERSION_rust-llvm = "1.82.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.82.0"
-
-repos:
-  meta-lts-mixins:
-    url: https://github.com/OldManYellsAtCloud/meta-lts-mixins.git
-    refspec: "de5765a6ca52553b0f487817e8f6d188fd3f27d5"
-    layers:
-      .:

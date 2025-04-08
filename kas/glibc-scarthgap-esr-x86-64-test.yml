@@ -4,21 +4,9 @@ header:
     - kas/ff/esr.yml
     - kas/repos/scarthgap.yml
     - kas/common.yml
-    - kas/repos/lts-mixins.yml
 
 machine: qemux86-64
-
-repos:
-  meta-lts-mixins:
-    refspec: "1793a1b8fc92cf8688c72b7fd4181e3a2f5ade55"
 
 local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-scarthgap-esr-x86_64"
-    REQUIRED_VERSION_rust = "1.81.0"
-    REQUIRED_VERSION_rust-native = "1.81.0"
-    REQUIRED_VERSION_libstd-rs = "1.81.0"
-    REQUIRED_VERSION_cargo = "1.81.0"
-    REQUIRED_VERSION_cargo-native = "1.81.0"
-    REQUIRED_VERSION_rust-llvm = "1.81.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.81.0"
