@@ -16,11 +16,7 @@ repos:
   meta-clang:
     refspec: "989ff6a4e7db59f01d511727135610006124ead2"
   meta-lts-mixins:
-    refspec: "1793a1b8fc92cf8688c72b7fd4181e3a2f5ade55"
-    patches:
-      properties:
-        repo: meta-firefox-test
-        path: kas/scarthgap-lts-mixins-patches
+    refspec: "65b35821c8e39b13b20f0413c315d0c8f1a64a11"
 
 local_conf_header:
   scarthgap: |

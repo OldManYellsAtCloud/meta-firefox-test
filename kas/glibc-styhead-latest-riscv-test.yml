@@ -20,9 +20,3 @@ local_conf_header:
     REQUIRED_VERSION_rust-llvm = "1.82.0"
     REQUIRED_VERSION_rust-llvm-native = "1.82.0"
 
-repos:
-  meta-rust:
-    patches:
-      properties:
-        repo: meta-firefox-test
-        path: kas/meta-rust-styhead-patches

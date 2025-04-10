@@ -5,13 +5,9 @@ header:
 
 repos:
   meta-oe:
-    refspec: "2920d4909236106e1a36d56b3b20762a308ba3d4"
+    refspec: "a7bc0ed175a1c2661599dad14ee66b8b7d0a99e7"
   poky:
-    refspec: "769a4479e123a5c2951eab8915cbd2b29d82c7f9"
-    patches:
-      properties:
-        repo: meta-firefox-test
-        path: kas/walnascar-poky-patches
+    refspec: "39cbc37918d2673d97800b138d5d3ea4585e92f7"
   meta-clang:
     refspec: "d5b9fdbed63f55882d46b104ed0234a7de4d35a4"
 
@@ -20,10 +16,10 @@ local_conf_header:
     BBMASK += "meta-clang/recipes-core/busybox"
     IMAGE_FEATURES:remove = " debug-tweaks "
     IMAGE_FEATURES:append = " allow-empty-password empty-root-password allow-root-login post-install-logging "
-    REQUIRED_VERSION_rust = "1.83.0"
-    REQUIRED_VERSION_rust-native = "1.83.0"
-    REQUIRED_VERSION_libstd-rs = "1.83.0"
-    REQUIRED_VERSION_cargo = "1.83.0"
-    REQUIRED_VERSION_cargo-native = "1.83.0"
-    REQUIRED_VERSION_rust-llvm = "1.83.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.83.0"
+    REQUIRED_VERSION_rust = "1.84.1"
+    REQUIRED_VERSION_rust-native = "1.84.1"
+    REQUIRED_VERSION_libstd-rs = "1.84.1"
+    REQUIRED_VERSION_cargo = "1.84.1"
+    REQUIRED_VERSION_cargo-native = "1.84.1"
+    REQUIRED_VERSION_rust-llvm = "1.84.1"
+    REQUIRED_VERSION_rust-llvm-native = "1.84.1"
