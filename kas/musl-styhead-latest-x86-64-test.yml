@@ -5,7 +5,6 @@ header:
     - kas/repos/styhead.yml
     - kas/common.yml
     - kas/musl.yml
-    - kas/repos/rust.yml
 
 machine: qemux86-64
 

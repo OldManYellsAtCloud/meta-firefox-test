@@ -5,22 +5,9 @@ header:
     - kas/repos/kirkstone.yml
     - kas/common.yml
     - kas/musl.yml
-    - kas/repos/lts-mixins.yml
-
-
-repos:
-  meta-lts-mixins:
-    refspec: "9bc06b6a761f28cf82aae8a99afe27ed5e2ce4c9"
 
 machine: qemuarm64
 
 local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-kirkstone-esr-aarch64"
-    REQUIRED_VERSION_rust = "1.80.1"
-    REQUIRED_VERSION_rust-native = "1.80.1"
-    REQUIRED_VERSION_libstd-rs = "1.80.1"
-    REQUIRED_VERSION_cargo = "1.80.1"
-    REQUIRED_VERSION_cargo-native = "1.80.1"
-    REQUIRED_VERSION_rust-llvm = "1.80.1"
-    REQUIRED_VERSION_rust-llvm-native = "1.80.1"
