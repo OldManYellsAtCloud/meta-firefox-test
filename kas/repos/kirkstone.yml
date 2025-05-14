@@ -12,11 +12,7 @@ repos:
   meta-clang:
     refspec: "fabeeadc6a1cbf1a81fbdb7dc9fa4022c7e5e851"
   meta-lts-mixins:
-    refspec: "77856a90b67834e5acd56eacc5964c0587353aec"
-    patches:
-      properties:
-        repo: meta-firefox-test
-        path: kas/kirkstone-mixins-patches
+    refspec: "83ce817e19487afa9fd375da687493587f78fbc6"
 
 
 local_conf_header:

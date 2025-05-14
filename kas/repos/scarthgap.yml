@@ -16,7 +16,7 @@ repos:
   meta-clang:
     refspec: "989ff6a4e7db59f01d511727135610006124ead2"
   meta-lts-mixins:
-    refspec: "65b35821c8e39b13b20f0413c315d0c8f1a64a11"
+    refspec: "a8046d5ec53b1856169ac795aa87cb0d5db84c04"
 
 local_conf_header:
   scarthgap: |
