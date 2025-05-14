@@ -1,0 +1,25 @@
+header:
+  version: 11
+  includes:
+    - kas/repos/common-repos.yml
+
+repos:
+  meta-oe:
+    refspec: "292e40fe97909bcfc961cdfb8dddd92b105063b5"
+  poky:
+    refspec: "c8e4047fa2c17b746754507d1cfcbaf634f231e8"
+  meta-clang:
+    refspec: "02e254ba1fb4937530d94a154b4c713c904c2d06"
+
+local_conf_header:
+  walnascar: |
+    BBMASK += "meta-clang/recipes-core/busybox"
+    IMAGE_FEATURES:remove = " debug-tweaks "
+    IMAGE_FEATURES:append = " allow-empty-password empty-root-password allow-root-login post-install-logging "
+    REQUIRED_VERSION_rust = "1.85.1"
+    REQUIRED_VERSION_rust-native = "1.85.1"
+    REQUIRED_VERSION_libstd-rs = "1.85.1"
+    REQUIRED_VERSION_cargo = "1.85.1"
+    REQUIRED_VERSION_cargo-native = "1.85.1"
+    REQUIRED_VERSION_rust-llvm = "1.85.1"
+    REQUIRED_VERSION_rust-llvm-native = "1.85.1"

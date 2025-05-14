@@ -1,0 +1,14 @@
+header:
+  version: 11
+  includes:
+    - kas/ff/esr.yml
+    - kas/repos/master.yml
+    - kas/common.yml
+    - kas/musl.yml
+
+machine: qemux86-64
+
+local_conf_header:
+  image_name: |
+    IMAGE_NAME = "musl-master-esr-x86_64"
+    BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"

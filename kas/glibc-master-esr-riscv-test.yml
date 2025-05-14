@@ -1,0 +1,13 @@
+header:
+  version: 11
+  includes:
+    - kas/ff/esr.yml
+    - kas/repos/master.yml
+    - kas/common.yml
+
+machine: qemuriscv64
+
+local_conf_header:
+  image_name: |
+    IMAGE_NAME = "glibc-master-esr-riscv"
+    BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
