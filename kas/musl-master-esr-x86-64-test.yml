@@ -12,3 +12,4 @@ local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-master-esr-x86_64"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
+    PACKAGECONFIG:remove:pn-mesa = "libclc"
