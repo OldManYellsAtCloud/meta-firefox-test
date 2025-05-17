@@ -12,3 +12,11 @@ local_conf_header:
   image_name: |
     IMAGE_NAME = "musl-master-latest-arm"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
+
+
+repos:
+  poky:
+    patches:
+      properties:
+        repo: meta-firefox-test
+        path: kas/master-poky-patches
