@@ -5,9 +5,9 @@ header:
 
 repos:
   meta-oe:
-    refspec: "1d6095b73fa21062fde2b347cd61b6c5104390d9"
+    refspec: "820047afe48a0d48056f4752defc3d2803c9d906"
   poky:
-    refspec: "9bc47d6a4d23bff5999b69fa2b99e1b32eaa62fb"
+    refspec: "5e22c4e3515b474b82af38cb4b3ec151ecb19488"
   meta-clang:
     refspec: "02e254ba1fb4937530d94a154b4c713c904c2d06"
 

@@ -6,11 +6,11 @@ header:
 
 repos:
   meta-oe:
-    refspec: "4052c97dc83d0c88fc277d6fc1815e0699020daa"
+    refspec: "45bddd258a3d1ded925faf8389e01bb948dc7f5b"
   poky:
-    refspec: "6bd3969d32730538608e680653e032e66958fe84"
+    refspec: "ab9a994a8cd8e06b519a693db444030999d273b7"
   meta-clang:
-    refspec: "fabeeadc6a1cbf1a81fbdb7dc9fa4022c7e5e851"
+    refspec: "8a1d0a1993040ab9d2fb7259b71e4c9582f5cd17"
   meta-lts-mixins:
     refspec: "83ce817e19487afa9fd375da687493587f78fbc6"
 

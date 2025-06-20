@@ -6,15 +6,11 @@ header:
 
 repos:
   meta-oe:
-    refspec: "18f939a5fb37528a5415b05077ece383c346a119"
+    refspec: "491671faee11ea131feab5a3a451d1a01deb2ab1"
   poky:
-    refspec: "a099b484c5b245a335a5ec9b293638e1362383ae"
-    patches:
-      properties:
-        repo: meta-firefox-test
-        path: kas/scarthgap-poky-patches
+    refspec: "ac257900c33754957b2696529682029d997a8f28"
   meta-clang:
-    refspec: "989ff6a4e7db59f01d511727135610006124ead2"
+    refspec: "eaa08939eaec9f620b14742ff3ac568553683034"
   meta-lts-mixins:
     refspec: "a8046d5ec53b1856169ac795aa87cb0d5db84c04"
 
