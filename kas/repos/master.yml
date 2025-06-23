@@ -7,7 +7,7 @@ repos:
   meta-oe:
     refspec: "820047afe48a0d48056f4752defc3d2803c9d906"
   poky:
-    refspec: "5e22c4e3515b474b82af38cb4b3ec151ecb19488"
+    refspec: "55c4f54106514cf3a34fdcb38eac9e08335bb087"
   meta-clang:
     refspec: "02e254ba1fb4937530d94a154b4c713c904c2d06"
 
