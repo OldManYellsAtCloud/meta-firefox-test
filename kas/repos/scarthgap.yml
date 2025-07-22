@@ -8,6 +8,10 @@ header:
 repos:
   meta-oe:
     refspec: "491671faee11ea131feab5a3a451d1a01deb2ab1"
+    patches:
+      properties:
+        repo: meta-firefox-test
+        path: kas/scarthgap-meta-oe-patches
   poky:
     refspec: "ac257900c33754957b2696529682029d997a8f28"
   meta-clang:

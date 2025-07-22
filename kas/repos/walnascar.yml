@@ -7,6 +7,10 @@ header:
 repos:
   meta-oe:
     refspec: "2169c9afcc0945045bea49f58011080942d4ddb4"
+    patches:
+      properties:
+        repo: meta-firefox-test
+        path: kas/walnascar-meta-oe-patches
   poky:
     refspec: "fd9b605507a20d850a9991316cd190c1d20dc4a6"
   meta-clang:

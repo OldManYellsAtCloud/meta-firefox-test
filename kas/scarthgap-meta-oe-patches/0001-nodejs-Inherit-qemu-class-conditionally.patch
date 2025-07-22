@@ -1,0 +1,57 @@
+From 0e443c4d5cbc7a9c0be5f5772b6f1297e3603731 Mon Sep 17 00:00:00 2001
+From: Gyorgy Sarvari <skandigraun@gmail.com>
+Date: Tue, 22 Jul 2025 15:48:01 +0200
+Subject: [PATCH] nodejs: Inherit qemu class conditionally
+
+The recipe unconditionally inherits the qemu class, because it executes
+some target binaries when it is cross-compiled and the bit-width of the
+build host and the target host are different.
+
+Since it is unconditional, it also means that it is inherited for native
+and nativesdk builds also. The qemu class uses some qemu options that are
+always derived from the target machine's configuration, even when the
+recipe is built for class-native. This means that some of the variables
+used by the recipe changes (e.g. QEMU_OPTIONS), and the shared state cache
+is invalidated when the target machine changes, even when nodejs-native is
+being built - and it triggers a full rebuild of nodejs-native unnecessarily.
+
+To avoid this, inherit the qemu class conditionally, only in case it is
+used (when the target and build arch's bit-widths are different).
+
+Also, inherit qemu-native based on the same condition, and move around the
+qemu-dependent code a bit, so it will be only executed when the qemu class
+is inherited.
+
+Signed-off-by: Gyorgy Sarvari <skandigraun@gmail.com>
+---
+ meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb b/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
+index bef62f88eb..3b2558b9d4 100644
+--- a/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
++++ b/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
+@@ -9,7 +9,8 @@ DEPENDS = "openssl openssl-native file-replacement-native python3-packaging-nati
+ DEPENDS:append:class-target = " qemu-native"
+ DEPENDS:append:class-native = " c-ares-native"
+ 
+-inherit pkgconfig python3native qemu ptest siteinfo
++inherit pkgconfig python3native ptest siteinfo
++inherit_defer ${@bb.utils.contains('HOST_AND_TARGET_SAME_WIDTH', '0', 'qemu', '', d)}
+ 
+ COMPATIBLE_MACHINE:armv4 = "(!.*armv4).*"
+ COMPATIBLE_MACHINE:armv5 = "(!.*armv5).*"
+@@ -108,8 +109,11 @@ python do_create_v8_qemu_wrapper () {
+     qemu_cmd = qemu_wrapper_cmdline(d, d.getVar('STAGING_DIR_HOST'),
+                                     qemu_libdirs)
+ 
+-    if d.getVar("HOST_AND_TARGET_SAME_WIDTH") == "1":
+-        qemu_cmd = ""
++    qemu_cmd = ""
++
++    if d.getVar("HOST_AND_TARGET_SAME_WIDTH") == "0":
++        qemu_cmd = qemu_wrapper_cmdline(d, d.getVar('STAGING_DIR_HOST'),
++                                        qemu_libdirs)
+ 
+     wrapper_path = d.expand('${B}/v8-qemu-wrapper.sh')
+     with open(wrapper_path, 'w') as wrapper_file:
