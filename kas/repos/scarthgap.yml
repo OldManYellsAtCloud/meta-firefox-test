@@ -3,6 +3,7 @@ header:
   includes:
     - kas/repos/common-repos.yml
     - kas/repos/lts-mixins.yml
+    - kas/repos/clang.yml
 
 repos:
   meta-oe:

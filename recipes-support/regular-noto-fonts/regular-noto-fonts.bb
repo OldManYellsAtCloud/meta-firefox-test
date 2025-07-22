@@ -7,8 +7,6 @@ SRC_URI = "https://noto-website-2.storage.googleapis.com/pkgs/Noto-unhinted.zip"
 SRC_URI[md5sum] = "d26b29b10c3c8d05df4ade8286963722"
 SRC_URI[sha256sum] = "7d0e099c208d11d7bf64091ea7f62f85bc07dedfaf2c01de53985a5b981025e3"
 
-UNPACKDIR = "${S}"
-
 inherit allarch fontcache
 
 FILES:${PN} += " \
@@ -16,7 +14,7 @@ FILES:${PN} += " \
 "
 
 do_install() {
-        cd ${S}
+        [ -d "${UNPACKDIR}" ] && cd "${UNPACKDIR}"
         for f in `ls *Regular*`; do
                 install -Dm 0644 $f ${D}${datadir}/fonts/noto/$f
         done

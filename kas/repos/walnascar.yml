@@ -2,6 +2,7 @@ header:
   version: 11
   includes:
     - kas/repos/common-repos.yml
+    - kas/repos/clang.yml
 
 repos:
   meta-oe:

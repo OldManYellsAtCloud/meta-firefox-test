@@ -8,8 +8,6 @@ SRC_URI = "file://run.sh \
            file://smoke \
            file://language"
 
-UNPACKDIR = "${S}"
-
 do_install(){
   if [ -e ${UNPACKDIR}/run.sh ]; then
     install -Dm 0755 ${UNPACKDIR}/run.sh ${D}/home/root/run.sh
