@@ -1,6 +1,6 @@
-From 0e443c4d5cbc7a9c0be5f5772b6f1297e3603731 Mon Sep 17 00:00:00 2001
+From 8d46f6b249757a8987388042f525d045db6d366c Mon Sep 17 00:00:00 2001
 From: Gyorgy Sarvari <skandigraun@gmail.com>
-Date: Tue, 22 Jul 2025 15:48:01 +0200
+Date: Tue, 22 Jul 2025 17:14:51 +0200
 Subject: [PATCH] nodejs: Inherit qemu class conditionally
 
 The recipe unconditionally inherits the qemu class, because it executes
@@ -24,11 +24,11 @@ is inherited.
 
 Signed-off-by: Gyorgy Sarvari <skandigraun@gmail.com>
 ---
- meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb b/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
-index bef62f88eb..3b2558b9d4 100644
+index bef62f88eb..eb80b4c10f 100644
 --- a/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
 +++ b/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
 @@ -9,7 +9,8 @@ DEPENDS = "openssl openssl-native file-replacement-native python3-packaging-nati
@@ -41,14 +41,16 @@ index bef62f88eb..3b2558b9d4 100644
  
  COMPATIBLE_MACHINE:armv4 = "(!.*armv4).*"
  COMPATIBLE_MACHINE:armv5 = "(!.*armv5).*"
-@@ -108,8 +109,11 @@ python do_create_v8_qemu_wrapper () {
-     qemu_cmd = qemu_wrapper_cmdline(d, d.getVar('STAGING_DIR_HOST'),
-                                     qemu_libdirs)
+@@ -105,11 +106,11 @@ python do_create_v8_qemu_wrapper () {
+     on the host."""
+     qemu_libdirs = [d.expand('${STAGING_DIR_HOST}${libdir}'),
+                     d.expand('${STAGING_DIR_HOST}${base_libdir}')]
+-    qemu_cmd = qemu_wrapper_cmdline(d, d.getVar('STAGING_DIR_HOST'),
+-                                    qemu_libdirs)
++    qemu_cmd = ""
  
 -    if d.getVar("HOST_AND_TARGET_SAME_WIDTH") == "1":
 -        qemu_cmd = ""
-+    qemu_cmd = ""
-+
 +    if d.getVar("HOST_AND_TARGET_SAME_WIDTH") == "0":
 +        qemu_cmd = qemu_wrapper_cmdline(d, d.getVar('STAGING_DIR_HOST'),
 +                                        qemu_libdirs)
