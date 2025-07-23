@@ -1,6 +1,6 @@
-From 09593428c97db02618b0cf586d10280ef46e578b Mon Sep 17 00:00:00 2001
+From a4c506f05537124a2359b42ae6c986a8009c6e92 Mon Sep 17 00:00:00 2001
 From: Gyorgy Sarvari <skandigraun@gmail.com>
-Date: Tue, 22 Jul 2025 15:50:50 +0200
+Date: Wed, 23 Jul 2025 06:24:17 +0200
 Subject: [PATCH] nodejs: Inherit qemu class conditionally
 
 The recipe unconditionally inherits the qemu class, because it executes
@@ -24,11 +24,11 @@ is inherited.
 
 Signed-off-by: Gyorgy Sarvari <skandigraun@gmail.com>
 ---
- meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb b/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb
-index dee4c9df4f..ece6a52ada 100644
+index dee4c9df4f..fb423cfe4f 100644
 --- a/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb
 +++ b/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb
 @@ -9,7 +9,8 @@ DEPENDS = "openssl openssl-native file-replacement-native python3-packaging-nati
@@ -49,8 +49,9 @@ index dee4c9df4f..ece6a52ada 100644
 -                                    qemu_libdirs)
 +    qemu_cmd = ""
  
-     if d.getVar("HOST_AND_TARGET_SAME_WIDTH") == "1":
+-    if d.getVar("HOST_AND_TARGET_SAME_WIDTH") == "1":
 -        qemu_cmd = ""
++    if d.getVar("HOST_AND_TARGET_SAME_WIDTH") == "0":
 +        qemu_cmd = qemu_wrapper_cmdline(d, d.getVar('STAGING_DIR_HOST'),
 +                                        qemu_libdirs)
  
