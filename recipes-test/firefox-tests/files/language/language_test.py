@@ -38,7 +38,7 @@ langs_ltr = [
     ("gn", "Ctrl+Tab cycles tendayke rupive eiporu ramovévape"),
     ("gd", "Cuairtichidh Ctrl+Tab thu tro na tabaichean san robh iad agad o chionn goirid"),
     ("hsb", "Strg+Tab přeběži rajtarki po tuchwilu postajenym porjedźe"),
-    ("hr", "Ctrl+Tab kruži kroz kartice redoslijedom zadnjeg korištenja"),
+    ("hr", "Ctrl+Tab kruži kroz kartice redoslijedom nedavnog korištenja"),
     ("id", "Ctrl+Tab berputar melalui tab dalam urutan yang baru saja digunakan"),
     ("ia", "Ctrl+Tab percurre le schedas in le ordine usate recentemente"),
     ("xh", "Imijikelo yeCtrl+Tab kwiithebhu kulungelelwano olusandul' ukusetyenziswa"),

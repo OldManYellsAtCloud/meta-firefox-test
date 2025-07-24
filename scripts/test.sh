@@ -84,9 +84,21 @@ fi
 touch /yocto/test-images/$image_folder.done
 
 # move the test results over here
+mkdir -p /yocto/test-images/$image_folder/test-results
 mkdir -p /yocto/$yocto_version/meta-browser/meta-firefox/test-results
 
-scp root@$guest_side_ip:~/*xml /yocto/$yocto_version/meta-browser/meta-firefox/test-results
+scp root@$guest_side_ip:~/*xml /yocto/test-images/$image_folder/test-results
 ssh root@$guest_side_ip -o 'BatchMode=yes' shutdown -h now
 
+# check if anything has failed
+ERRORS=`grep -v 'failures="0"' /yocto/test-images/$image_folder/test-results/*xml`
+
+if [ -z "$ERRORS" ]; then
+  RET=0
+else
+  RET=1
+fi
+
 kill $qemu_PID
+
+exit $RET
