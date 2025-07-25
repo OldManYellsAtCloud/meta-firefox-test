@@ -13,7 +13,10 @@ arch_qemu_dict["riscv"]="qemuriscv64"
 arch_qemu_dict["x86-64"]="qemux86-64"
 
 declare -A qemu_params_dict
-qemu_params_dict["x86-64"]='qemuparams=" --enable-kvm "'
+qemu_params_dict["arm"]='qemuparams=" -nic user,dns=192.168.1.59 "'
+qemu_params_dict["aarch64"]='qemuparams=" -nic user,dns=192.168.1.59 "'
+qemu_params_dict["riscv"]='qemuparams=" -nic user,dns=192.168.1.59 "'
+qemu_params_dict["x86-64"]='qemuparams=" --enable-kvm -nic user,dns=192.168.1.59 "'
 
 yocto_version=$1
 arch=$2
