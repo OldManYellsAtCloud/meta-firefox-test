@@ -13,10 +13,7 @@ arch_qemu_dict["riscv"]="qemuriscv64"
 arch_qemu_dict["x86-64"]="qemux86-64"
 
 declare -A qemu_params_dict
-qemu_params_dict["arm"]='qemuparams=" -nic user,dns=192.168.1.59 "'
-qemu_params_dict["aarch64"]='qemuparams=" -nic user,dns=192.168.1.59 "'
-qemu_params_dict["riscv"]='qemuparams=" -nic user,dns=192.168.1.59 "'
-qemu_params_dict["x86-64"]='qemuparams=" --enable-kvm -nic user,dns=192.168.1.59 "'
+qemu_params_dict["x86-64"]='qemuparams=" --enable-kvm "'
 
 yocto_version=$1
 arch=$2
@@ -47,6 +44,8 @@ source oe-init-build-env ../build
 
 rm -rf tmp/deploy/images/$qemu_machine
 cp -r /yocto/test-images/$image_folder tmp/deploy/images/$qemu_machine
+
+sed -i "s/8.8.8.8/192.168.1.59/g" tmp/deploy/images/$qemu_machine/firefox-test-image*conf
 
 coproc qemu { runqemu "$qemu_machine $qemu_params"; }
 
