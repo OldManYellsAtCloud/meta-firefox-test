@@ -13,17 +13,17 @@ repos:
   meta-clang:
     refspec: "8a1d0a1993040ab9d2fb7259b71e4c9582f5cd17"
   meta-lts-mixins:
-    refspec: "83ce817e19487afa9fd375da687493587f78fbc6"
+    refspec: "895b8b76de6dea32ba53b86e4db3ec5b9b275f28"
 
 
 local_conf_header:
   kirkstone: |
     BBMASK += "poky/meta/recipes-devtools/rust"
     LLVM_TARGETS_TO_BUILD:append = ";WebAssembly"
-    REQUIRED_VERSION_rust = "1.85.1"
-    REQUIRED_VERSION_rust-native = "1.85.1"
-    REQUIRED_VERSION_libstd-rs = "1.85.1"
-    REQUIRED_VERSION_cargo = "1.85.1"
-    REQUIRED_VERSION_cargo-native = "1.85.1"
-    REQUIRED_VERSION_rust-llvm = "1.85.1"
-    REQUIRED_VERSION_rust-llvm-native = "1.85.1"
+    REQUIRED_VERSION_rust = "1.87.0"
+    REQUIRED_VERSION_rust-native = "1.87.0"
+    REQUIRED_VERSION_libstd-rs = "1.87.0"
+    REQUIRED_VERSION_cargo = "1.87.0"
+    REQUIRED_VERSION_cargo-native = "1.87.0"
+    REQUIRED_VERSION_rust-llvm = "1.87.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.87.0"
