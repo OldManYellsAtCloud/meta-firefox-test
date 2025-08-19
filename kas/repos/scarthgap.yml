@@ -7,26 +7,26 @@ header:
 
 repos:
   meta-oe:
-    refspec: "491671faee11ea131feab5a3a451d1a01deb2ab1"
+    refspec: "c29a18fa39ede952f3f6108ec007c1906e2d9a0d"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/scarthgap-meta-oe-patches
   poky:
-    refspec: "ac257900c33754957b2696529682029d997a8f28"
+    refspec: "6f7e929ea6ea557f107c8ccffea69a7d73439591"
   meta-clang:
-    refspec: "eaa08939eaec9f620b14742ff3ac568553683034"
+    refspec: "f915bbfc71f7b58c38607b8407718bd8b5cefa44"
   meta-lts-mixins:
-    refspec: "65c51abe3871d50e599366765838d1478eba093e"
+    refspec: "96deb45139df027473faf0938fe006d33c45c375"
 
 local_conf_header:
   scarthgap: |
     BBMASK += "poky/meta/recipes-devtools/rust"
     BBMASK += "meta-lts-mixins/recipes-gnome/librsvg"
-    REQUIRED_VERSION_rust = "1.87.0"
-    REQUIRED_VERSION_rust-native = "1.87.0"
-    REQUIRED_VERSION_libstd-rs = "1.87.0"
-    REQUIRED_VERSION_cargo = "1.87.0"
-    REQUIRED_VERSION_cargo-native = "1.87.0"
-    REQUIRED_VERSION_rust-llvm = "1.87.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.87.0"
+    REQUIRED_VERSION_rust = "1.88.0"
+    REQUIRED_VERSION_rust-native = "1.88.0"
+    REQUIRED_VERSION_libstd-rs = "1.88.0"
+    REQUIRED_VERSION_cargo = "1.88.0"
+    REQUIRED_VERSION_cargo-native = "1.88.0"
+    REQUIRED_VERSION_rust-llvm = "1.88.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.88.0"
