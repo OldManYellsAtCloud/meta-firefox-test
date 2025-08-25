@@ -14,7 +14,7 @@ repos:
   poky:
     refspec: "db04028d9070f05c3b5dee728473fb234bd24f05"
   meta-clang:
-    refspec: "db04028d9070f05c3b5dee728473fb234bd24f05"
+    refspec: "003cba92e982bdd565a6889f28799f8bba14957e"
 
 local_conf_header:
   walnascar: |
