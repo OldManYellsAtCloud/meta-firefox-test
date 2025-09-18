@@ -6,13 +6,13 @@ header:
 
 repos:
   meta-oe:
-    refspec: "dca497d728792e3cb655c78455c2d649af312ce8"
+    refspec: "80ab58cc404959ae2f0e8b2e68935b3bfd8e8cfe"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/walnascar-meta-oe-patches
   poky:
-    refspec: "db04028d9070f05c3b5dee728473fb234bd24f05"
+    refspec: "7e03dda11804574e05742c1f0e1b797ae990c3ff"
   meta-clang:
     refspec: "003cba92e982bdd565a6889f28799f8bba14957e"
 

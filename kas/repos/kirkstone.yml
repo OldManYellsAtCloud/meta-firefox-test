@@ -7,23 +7,23 @@ header:
 
 repos:
   meta-oe:
-    refspec: "06fc0278f10d630838d703dde707bbf0e2999873"
+    refspec: "5c138125018fef4b240e62b664a809d19f4b26a5"
   poky:
-    refspec: "39df9602b1c0339519be81d1cba9a4a25379309a"
+    refspec: "ad403d6f6fe24a37a7d62c29d9df79adaeed7e53"
   meta-clang:
     refspec: "8a1d0a1993040ab9d2fb7259b71e4c9582f5cd17"
   meta-lts-mixins:
-    refspec: "cc35d7af3a34676e898980e1e1abbb29f5fe2860"
+    refspec: "ec37dc4b7041e0b81c7c577e541db42abbe43226"
 
 
 local_conf_header:
   kirkstone: |
     BBMASK += "poky/meta/recipes-devtools/rust"
     LLVM_TARGETS_TO_BUILD:append = ";WebAssembly"
-    REQUIRED_VERSION_rust = "1.88.0"
-    REQUIRED_VERSION_rust-native = "1.88.0"
-    REQUIRED_VERSION_libstd-rs = "1.88.0"
-    REQUIRED_VERSION_cargo = "1.88.0"
-    REQUIRED_VERSION_cargo-native = "1.88.0"
-    REQUIRED_VERSION_rust-llvm = "1.88.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.88.0"
+    REQUIRED_VERSION_rust = "1.89.0"
+    REQUIRED_VERSION_rust-native = "1.89.0"
+    REQUIRED_VERSION_libstd-rs = "1.89.0"
+    REQUIRED_VERSION_cargo = "1.89.0"
+    REQUIRED_VERSION_cargo-native = "1.89.0"
+    REQUIRED_VERSION_rust-llvm = "1.89.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.89.0"
