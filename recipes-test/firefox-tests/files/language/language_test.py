@@ -122,7 +122,7 @@ class Test_firefox:
             fp.set_preference("intl.locale.requested", "he")
         fp.set_preference("extensions.installDistroAddons", True)
         fp.set_preference("extensions.autoDisableScopes", 0)
-        fp.set_preference("extensions.enabledScopes", 15)
+        fp.set_preference("extensions.enabledScopes", 11)
         options = Options()
         options.profile = fp
         driver = webdriver.Firefox(options = options)

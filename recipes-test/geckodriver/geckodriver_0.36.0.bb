@@ -10,11 +10,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f928f8708435b11c19e5690af9ad7f95"
 # bad, however easy solution.
 
 SRC_URI = "https://github.com/mozilla/geckodriver/archive/refs/tags/v${PV}.tar.gz"
-SRC_URI[sha256sum] = "5e77314806e275daeed70acb04b56c039060a13a2394df832127708e89708163"
+SRC_URI[sha256sum] = "03d8fe48d32a711318b2fffc93019874731318de44f36a9731935d10bdea762b"
 
 include geckodriver-crates.inc
 
-inherit cargo 
+inherit cargo
 # cargo-update-recipe-crates class doesn't exist in Kirkstone
 # so let me just keep this here, and set it manually, when
 # it comes to updating it.
