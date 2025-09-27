@@ -22,7 +22,6 @@ repos:
 local_conf_header:
   scarthgap: |
     BBMASK += "poky/meta/recipes-devtools/rust"
-    BBMASK += "meta-lts-mixins/recipes-gnome/librsvg"
     REQUIRED_VERSION_rust = "1.89.0"
     REQUIRED_VERSION_rust-native = "1.89.0"
     REQUIRED_VERSION_libstd-rs = "1.89.0"
