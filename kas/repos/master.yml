@@ -5,22 +5,22 @@ header:
 
 repos:
   meta-oe:
-    refspec: "c436334d88a515ad82571b9517dffb1847ecd3bd"
+    refspec: "e1915f54f1db1208152148973e9965570972bbc7"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/master-meta-oe-patches
   poky:
-    refspec: "cfbb00657ab961a3c3a8e6619fc08a2a3f4255c7"
+    refspec: "6efedb8ff3f51054189cc006a5a716fc17ab75e4"
 
 local_conf_header:
   walnascar: |
     IMAGE_FEATURES:remove = " debug-tweaks "
     IMAGE_FEATURES:append = " allow-empty-password empty-root-password allow-root-login post-install-logging "
-    REQUIRED_VERSION_rust = "1.89.0"
-    REQUIRED_VERSION_rust-native = "1.89.0"
-    REQUIRED_VERSION_libstd-rs = "1.89.0"
-    REQUIRED_VERSION_cargo = "1.89.0"
-    REQUIRED_VERSION_cargo-native = "1.89.0"
-    REQUIRED_VERSION_rust-llvm = "1.89.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.89.0"
+    REQUIRED_VERSION_rust = "1.90.0"
+    REQUIRED_VERSION_rust-native = "1.90.0"
+    REQUIRED_VERSION_libstd-rs = "1.90.0"
+    REQUIRED_VERSION_cargo = "1.90.0"
+    REQUIRED_VERSION_cargo-native = "1.90.0"
+    REQUIRED_VERSION_rust-llvm = "1.90.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.90.0"

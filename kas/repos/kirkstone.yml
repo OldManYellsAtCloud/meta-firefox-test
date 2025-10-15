@@ -7,11 +7,11 @@ header:
 
 repos:
   meta-oe:
-    refspec: "5c138125018fef4b240e62b664a809d19f4b26a5"
+    refspec: "96fbc156364fd78530d2bfbe1b8a77789f52997d"
   poky:
-    refspec: "ad403d6f6fe24a37a7d62c29d9df79adaeed7e53"
+    refspec: "962d08fb4077f44a1d2b6d6c6d29a466adebeb85"
   meta-clang:
-    refspec: "8a1d0a1993040ab9d2fb7259b71e4c9582f5cd17"
+    refspec: "26de1c560ef3caf3cf641cd54ed0b7cbdc219ed9"
   meta-lts-mixins:
     refspec: "ec37dc4b7041e0b81c7c577e541db42abbe43226"
 

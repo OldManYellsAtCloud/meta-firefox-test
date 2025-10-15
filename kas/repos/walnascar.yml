@@ -12,7 +12,7 @@ repos:
         repo: meta-firefox-test
         path: kas/walnascar-meta-oe-patches
   poky:
-    refspec: "7e03dda11804574e05742c1f0e1b797ae990c3ff"
+    refspec: "d0b46a6624ec9c61c47270745dd0b2d5abbe6ac1"
   meta-clang:
     refspec: "003cba92e982bdd565a6889f28799f8bba14957e"
 
