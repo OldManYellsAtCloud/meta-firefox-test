@@ -24,8 +24,8 @@ Signed-off-by: Gyorgy Sarvari <skandigraun@gmail.com>
 
 diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_22.19.0.bb b/meta-oe/recipes-devtools/nodejs/nodejs_22.19.0.bb
 index 4bc829f140..162c9607d2 100644
---- a/meta-oe/recipes-devtools/nodejs/nodejs_22.19.0.bb
-+++ b/meta-oe/recipes-devtools/nodejs/nodejs_22.19.0.bb
+--- a/meta-oe/recipes-devtools/nodejs/nodejs_22.20.0.bb
++++ b/meta-oe/recipes-devtools/nodejs/nodejs_22.20.0.bb
 @@ -9,7 +9,9 @@ DEPENDS = "openssl openssl-native file-replacement-native python3-packaging-nati
  DEPENDS:append:class-target = " qemu-native"
  DEPENDS:append:class-native = " c-ares-native"
