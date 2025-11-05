@@ -1,10 +1,20 @@
 header:
   version: 11
-  includes:
-    - kas/repos/common-repos.yml
 
 repos:
+  meta-browser:
+    layers:
+      ../meta-browser/meta-firefox:
+  meta-firefox-test:
+    layers:
+      .:
   meta-oe:
+    url: https://github.com/openembedded/meta-openembedded
+    layers:
+      meta-oe:
+      meta-networking:
+      meta-multimedia:
+      meta-python:
     refspec: "40445a7e32a05b46060a61c64c1ad697562a3e00"
     patches:
       properties:
@@ -13,8 +23,8 @@ repos:
   oe-core:
     url: git://git.openembedded.org/openembedded-core.git
     refspec: "7f36f0526fae5a81f9bc02e16cc849a2b1ea5797"
-      layers:
-        meta:
+    layers:
+      meta:
   bitbake:
     url: git://git.openembedded.org/bitbake.git
     refspec: "22b3fd418efc10da7e4a8c1725de285714d2396b"
