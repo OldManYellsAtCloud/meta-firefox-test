@@ -1,6 +1,8 @@
 header:
   version: 11
 
+distro: ""
+
 repos:
   meta-browser:
     layers:
