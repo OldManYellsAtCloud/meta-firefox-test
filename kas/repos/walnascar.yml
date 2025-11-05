@@ -6,7 +6,7 @@ header:
 
 repos:
   meta-oe:
-    refspec: "80ab58cc404959ae2f0e8b2e68935b3bfd8e8cfe"
+    refspec: "07330a98cf93806b7a4e0170a541b94962ff3960"
     patches:
       properties:
         repo: meta-firefox-test

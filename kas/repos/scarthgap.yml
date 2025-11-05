@@ -7,13 +7,13 @@ header:
 
 repos:
   meta-oe:
-    refspec: "e621da947048842109db1b4fd3917a02e0501aa2
+    refspec: "15e18246dd0c0585cd1515a0be8ee5e2016d1329"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/scarthgap-meta-oe-patches
   poky:
-    refspec: "f16cffd030d21d12dd57bb95cfc310bda41f8a1f"
+    refspec: "c4a4df3e720e2d8a3dd2c2a0467704a42b468205"
   meta-clang:
     refspec: "731488911f55ebfe746068512b426351192f82f2"
   meta-lts-mixins:

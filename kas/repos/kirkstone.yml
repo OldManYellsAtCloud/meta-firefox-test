@@ -9,7 +9,7 @@ repos:
   meta-oe:
     refspec: "96fbc156364fd78530d2bfbe1b8a77789f52997d"
   poky:
-    refspec: "962d08fb4077f44a1d2b6d6c6d29a466adebeb85"
+    refspec: "04b39e5b7eb19498215d85c88a5fffb460fea1eb"
   meta-clang:
     refspec: "26de1c560ef3caf3cf641cd54ed0b7cbdc219ed9"
   meta-lts-mixins:

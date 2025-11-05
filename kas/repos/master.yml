@@ -5,13 +5,21 @@ header:
 
 repos:
   meta-oe:
-    refspec: "e1915f54f1db1208152148973e9965570972bbc7"
+    refspec: "40445a7e32a05b46060a61c64c1ad697562a3e00"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/master-meta-oe-patches
-  poky:
-    refspec: "6efedb8ff3f51054189cc006a5a716fc17ab75e4"
+  oe-core:
+    url: git://git.openembedded.org/openembedded-core.git
+    refspec: "7f36f0526fae5a81f9bc02e16cc849a2b1ea5797"
+      layers:
+        meta:
+  bitbake:
+    url: git://git.openembedded.org/bitbake.git
+    refspec: "22b3fd418efc10da7e4a8c1725de285714d2396b"
+    layers:
+      bitbake: excluded
 
 local_conf_header:
   walnascar: |
