@@ -39,13 +39,18 @@ else
   OPENSBI=""
 fi
 
+if [ "$yocto_version" = "master" ]; then
+  RUST_LLVM=""
+else
+  RUST_LLVM="rust-llvm-native"
+fi
+
 qemu_machine=${arch_qemu_dict[$arch]}
 
 rm -rf ./build/tmp/deploy/images/$qemu_machine
 
 kas checkout --update ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
 kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean rust-native cargo-native libstd-rs firefox \
-         rust-llvm-native \
          firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-in  firefox-l10n-ms     firefox-l10n-sr \
          firefox-l10n-af           firefox-l10n-en-us  firefox-l10n-hr     firefox-l10n-my     firefox-l10n-sv-se \
          firefox-l10n-an           firefox-l10n-eo     firefox-l10n-hsb    firefox-l10n-nb-no  firefox-l10n-szl \
@@ -66,7 +71,7 @@ kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean r
          firefox-l10n-de           firefox-l10n-gl     firefox-l10n-lt     firefox-l10n-sk     firefox-l10n-dsb \
          firefox-l10n-gn           firefox-l10n-lv     firefox-l10n-sl     firefox-l10n-el     firefox-l10n-gu-in \
          firefox-l10n-mk           firefox-l10n-son    firefox-l10n-en-ca  firefox-l10n-he     firefox-l10n-mr \
-         firefox-l10n-sq virtual/kernel $OPENSBI" || exit 1
+         firefox-l10n-sq virtual/kernel $OPENSBI $RUST_LLVM" || exit 1
 kas build ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
 
 cp -r ./build/tmp/deploy/images/$qemu_machine /yocto/test-images/$kas_file_name
