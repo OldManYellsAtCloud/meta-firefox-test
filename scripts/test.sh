@@ -39,7 +39,7 @@ if [ -f /yocto/test-images/$image_folder.done ]; then
   exit 0
 fi
 
-cd /yocto/$yocto_version/poky
+cd /yocto/$yocto_version/poky || cd /yocto/$yocto_version/oe-core
 source oe-init-build-env ../build
 
 rm -rf tmp/deploy/images/$qemu_machine
