@@ -47,17 +47,12 @@ cp -r /yocto/test-images/$image_folder tmp/deploy/images/$qemu_machine
 
 sed -i "s/8.8.8.8/192.168.1.59/g" tmp/deploy/images/$qemu_machine/firefox-test-image*conf
 
-coproc qemu { runqemu snapshot "$qemu_machine $qemu_params"; }
+coproc qemu { runqemu snapshot "$qemu_machine $qemu_params" > qemu_output 2>&1; }
 
 TIMEOUT=100
 QEMU_ONLINE="false"
 while [ $TIMEOUT -gt 0 -a "$QEMU_ONLINE" = "false" ]; do
-  tap_iface_name=`ip link show | grep tap | tail -n 1 | cut -d: -f2`
-  host_side_ip=`ip -o a show | grep $tap_iface_name | grep -v inet6 | grep -o "192.168.7.[0-9]*" | head -n1`
-  last_octet=`echo $host_side_ip | cut -d. -f4`
-  guest_side_ip=`echo $host_side_ip | cut -d. -f1-3`
-  guest_side_ip="$guest_side_ip".$((last_octet + 1))
-
+  guest_side_ip=$(grep "Network configuration" ./qemu_output | cut -d= -f2 | cut -d: -f1)
 
   # keep probing the machine, until it's ready for ssh connection
   ssh root@$guest_side_ip -o 'BatchMode=yes' -o 'ConnectionAttempts=1' true
@@ -83,8 +78,6 @@ if [ ! -e /yocto/test-images/language-test ]; then
   touch /yocto/test-images/language-test
 fi
 
-touch /yocto/test-images/$image_folder.done
-
 # move the test results over here
 mkdir -p /yocto/test-images/$image_folder/test-results
 mkdir -p /yocto/$yocto_version/meta-browser/meta-firefox/test-results
@@ -96,6 +89,7 @@ ssh root@$guest_side_ip -o 'BatchMode=yes' shutdown -h now
 ERRORS=`grep -v 'failures="0"' /yocto/test-images/$image_folder/test-results/*xml`
 
 if [ -z "$ERRORS" ]; then
+  touch /yocto/test-images/$image_folder.done
   RET=0
 else
   RET=1
