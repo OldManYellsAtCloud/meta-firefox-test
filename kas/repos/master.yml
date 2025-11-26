@@ -17,19 +17,19 @@ repos:
       meta-networking:
       meta-multimedia:
       meta-python:
-    refspec: "40445a7e32a05b46060a61c64c1ad697562a3e00"
+    refspec: "d56cd727c73a53627827080f664b31cfa19581fb"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/master-meta-oe-patches
   oe-core:
     url: git://git.openembedded.org/openembedded-core.git
-    refspec: "7f36f0526fae5a81f9bc02e16cc849a2b1ea5797"
+    refspec: "3a15ca2a784539098e95a3a06dec7c39f23db985"
     layers:
       meta:
   bitbake:
     url: git://git.openembedded.org/bitbake.git
-    refspec: "22b3fd418efc10da7e4a8c1725de285714d2396b"
+    refspec: "6ee4df8ab58e0175b43106d8a6cbac1f6ab8d022"
     layers:
       bitbake: excluded
 
