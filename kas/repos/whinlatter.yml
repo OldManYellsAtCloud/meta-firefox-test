@@ -1,0 +1,20 @@
+header:
+  version: 11
+  includes:
+    - kas/repos/common-repos.yml
+    - kas/repos/core.yml
+    - kas/repos/bitbake.yml
+
+distro: ""
+
+repos:
+  meta-oe:
+    commit: "09c7f76c196876a4366f220b360f4bdb93ab95c0"
+    patches:
+      properties:
+        repo: meta-firefox-test
+        path: kas/whinlatter-meta-oe-patches
+  oe-core:
+    commit: "8519978592483bb096ed5192fff7af6c887b799e"
+  bitbake:
+    commit: "720df1a53452983c1c832f624490e255cf389204"

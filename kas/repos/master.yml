@@ -1,46 +1,20 @@
 header:
   version: 11
+  includes:
+    - kas/repos/core.yml
+    - kas/repos/bitbake.yml
+    - kas/repos/common-repos.yml
 
 distro: ""
 
 repos:
-  meta-browser:
-    layers:
-      ../meta-browser/meta-firefox:
-  meta-firefox-test:
-    layers:
-      .:
   meta-oe:
-    url: https://github.com/openembedded/meta-openembedded
-    layers:
-      meta-oe:
-      meta-networking:
-      meta-multimedia:
-      meta-python:
-    refspec: "d56cd727c73a53627827080f664b31cfa19581fb"
+    commit: "d56cd727c73a53627827080f664b31cfa19581fb"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/master-meta-oe-patches
   oe-core:
-    url: git://git.openembedded.org/openembedded-core.git
-    refspec: "3a15ca2a784539098e95a3a06dec7c39f23db985"
-    layers:
-      meta:
+    commit: "6145837147dc2a6d54a221f9cd7fe90d6895ff90"
   bitbake:
-    url: git://git.openembedded.org/bitbake.git
-    refspec: "6ee4df8ab58e0175b43106d8a6cbac1f6ab8d022"
-    layers:
-      bitbake: excluded
-
-local_conf_header:
-  walnascar: |
-    IMAGE_FEATURES:remove = " debug-tweaks "
-    IMAGE_FEATURES:append = " allow-empty-password empty-root-password allow-root-login post-install-logging "
-    REQUIRED_VERSION_rust = "1.90.0"
-    REQUIRED_VERSION_rust-native = "1.90.0"
-    REQUIRED_VERSION_libstd-rs = "1.90.0"
-    REQUIRED_VERSION_cargo = "1.90.0"
-    REQUIRED_VERSION_cargo-native = "1.90.0"
-    REQUIRED_VERSION_rust-llvm = "1.90.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.90.0"
+    commit: "0dde1a3ff852be057be40d17f233ecca19e7b389"

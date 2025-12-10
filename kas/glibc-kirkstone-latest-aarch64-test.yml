@@ -10,8 +10,3 @@ machine: qemuarm64
 local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-kirkstone-latest-aarch64"
-
-# ff 144+ requires clang17 (or later)
-repos:
-  meta-clang:
-    refspec: "3d891dbfce07c5ffaf7b6e59c9f3d657ed492bb4"

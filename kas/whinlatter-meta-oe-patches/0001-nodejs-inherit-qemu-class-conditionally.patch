@@ -1,8 +1,3 @@
-From a4c506f05537124a2359b42ae6c986a8009c6e92 Mon Sep 17 00:00:00 2001
-From: Gyorgy Sarvari <skandigraun@gmail.com>
-Date: Wed, 23 Jul 2025 06:24:17 +0200
-Subject: [PATCH] nodejs: Inherit qemu class conditionally
-
 The recipe unconditionally inherits the qemu class, because it executes
 some target binaries when it is cross-compiled and the bit-width of the
 build host and the target host are different.
@@ -24,24 +19,25 @@ is inherited.
 
 Signed-off-by: Gyorgy Sarvari <skandigraun@gmail.com>
 ---
- meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+ meta-oe/recipes-devtools/nodejs/nodejs_22.19.0.bb | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb b/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb
-index dee4c9df4f..fb423cfe4f 100644
---- a/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb
-+++ b/meta-oe/recipes-devtools/nodejs/nodejs_22.14.0.bb
-@@ -9,7 +9,8 @@ DEPENDS = "openssl openssl-native file-replacement-native python3-packaging-nati
+diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_22.19.0.bb b/meta-oe/recipes-devtools/nodejs/nodejs_22.19.0.bb
+index 4bc829f140..162c9607d2 100644
+--- a/meta-oe/recipes-devtools/nodejs/nodejs_22.21.1.bb
++++ b/meta-oe/recipes-devtools/nodejs/nodejs_22.21.1.bb
+@@ -9,7 +9,9 @@ DEPENDS = "openssl openssl-native file-replacement-native python3-packaging-nati
  DEPENDS:append:class-target = " qemu-native"
  DEPENDS:append:class-native = " c-ares-native"
  
 -inherit pkgconfig python3native qemu ptest siteinfo
 +inherit pkgconfig python3native ptest siteinfo
 +inherit_defer ${@bb.utils.contains('HOST_AND_TARGET_SAME_WIDTH', '0', 'qemu', '', d)}
++
  
  COMPATIBLE_MACHINE:armv4 = "(!.*armv4).*"
  COMPATIBLE_MACHINE:armv5 = "(!.*armv5).*"
-@@ -107,11 +108,11 @@ python do_create_v8_qemu_wrapper () {
+@@ -108,11 +110,11 @@ python do_create_v8_qemu_wrapper () {
      on the host."""
      qemu_libdirs = [d.expand('${STAGING_DIR_HOST}${libdir}'),
                      d.expand('${STAGING_DIR_HOST}${base_libdir}')]
@@ -57,3 +53,11 @@ index dee4c9df4f..fb423cfe4f 100644
  
      wrapper_path = d.expand('${B}/v8-qemu-wrapper.sh')
      with open(wrapper_path, 'w') as wrapper_file:
+@@ -209,6 +211,7 @@ python __anonymous () {
+     # 32 bit target and 64 bit host (x86-64 or aarch64) have different bit width
+     if d.getVar("SITEINFO_BITS") == "32" and "64" in d.getVar("BUILD_ARCH"):
+         d.setVar("HOST_AND_TARGET_SAME_WIDTH", "0")
++        d.appendVar("DEPENDS:class-target", " qemu-native")
+     else:
+         d.setVar("HOST_AND_TARGET_SAME_WIDTH", "1")
+ }

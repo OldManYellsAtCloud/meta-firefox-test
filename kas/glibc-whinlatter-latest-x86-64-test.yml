@@ -2,13 +2,12 @@ header:
   version: 11
   includes:
     - kas/ff/latest.yml
-    - kas/repos/walnascar.yml
+    - kas/repos/whinlatter.yml
     - kas/common.yml
-    - kas/musl.yml
 
-machine: qemuarm64
+machine: qemux86-64
 
 local_conf_header:
   image_name: |
-    IMAGE_NAME = "musl-walnascar-latest-aarch64"
+    IMAGE_NAME = "glibc-whinlatter-latest-x86_64"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"

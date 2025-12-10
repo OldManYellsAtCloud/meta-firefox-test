@@ -4,17 +4,17 @@ header:
     - kas/repos/common-repos.yml
     - kas/repos/lts-mixins.yml
     - kas/repos/clang.yml
+    - kas/repos/poky.yml
 
 repos:
   meta-oe:
-    refspec: "07ac1890c843b374c27e150f1a2e53ad3db2a8e4"
+    commit: "97d4be2839754dadfc326c21948472c2fc2985ce"
   poky:
-    refspec: "36165cce685e0048fb7a576c009e12d718c80ea1"
+    commit: "40701465df90b38b9068bcbd0ce6aa6587807433"
   meta-clang:
-    refspec: "3d891dbfce07c5ffaf7b6e59c9f3d657ed492bb4"
+    commit: "3d891dbfce07c5ffaf7b6e59c9f3d657ed492bb4"
   meta-lts-mixins:
-    refspec: "88ee10acb0de3da6b3107fb7a8617c8cd56420bf"
-
+    commit: "88ee10acb0de3da6b3107fb7a8617c8cd56420bf"
 
 local_conf_header:
   kirkstone: |

@@ -1,0 +1,8 @@
+header:
+  version: 11
+
+repos:
+  oe-core:
+    url: git://git.openembedded.org/openembedded-core.git
+    layers:
+      meta:

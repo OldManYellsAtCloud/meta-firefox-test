@@ -1,0 +1,8 @@
+header:
+  version: 11
+
+repos:
+  bitbake:
+    url: git://git.openembedded.org/bitbake.git
+    layers:
+      bitbake: disabled
