@@ -39,7 +39,7 @@ else
   OPENSBI=""
 fi
 
-if [ "$yocto_version" = "master" ]; then
+if [ "$yocto_version" = "master" -o "$yocto_version" = "whinlatter" ]; then
   RUST_LLVM=""
 else
   RUST_LLVM="rust-llvm-native"
