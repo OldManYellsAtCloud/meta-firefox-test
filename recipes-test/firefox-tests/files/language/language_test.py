@@ -61,7 +61,7 @@ langs_ltr = [
     ("ff", "Ctrl+Tab yaaɓat hakkunde tabbe e deggondiral kuutoragol ɓennungol"),
     ("ro", "Ctrl+Tab parcurge filele în ordinea celor mai recent folosite"),
     ("rm", "Ctrl+Tab siglia dad in tab a l'auter en la successiun da l'ultima utilisaziun"),
-    ("sc", "Ctrl+Tab cuncàmbia ischedas in s'òrdine de impreu reghente"),
+    ("sc", "Ctrl+Tab cuncàmbiat ischedas in s’òrdine de impreu reghente"),
     ("sco", "Ctrl+Tab gangs through tabs in the order ye last yaised them"),
     ("sq", "Ctrl+Tab ju kalon nëpër skedat sipas radhës së përdorimit së fundi"),
     ("sk", "Prepínať karty pomocou Ctrl+Tab v poradí podľa posledného otvorenia"),
