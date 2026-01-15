@@ -7,7 +7,7 @@ import time
 
 def test_smoke():
     driver = webdriver.Firefox()
-    driver.get("https://example.com")
+    driver.get("https://www.example.com")
     paragraphs = driver.find_elements(By.TAG_NAME, "p")
     expected_text = "This domain is for use in documentation examples without needing permission. Avoid use in operations."
     actual_text = paragraphs[0].text
