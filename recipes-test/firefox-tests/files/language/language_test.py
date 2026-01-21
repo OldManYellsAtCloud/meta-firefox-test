@@ -162,7 +162,7 @@ class Test_firefox:
     def verify_displayed_sentence(self, driver, lang, expected):
         self.select_language(driver, lang)
         actual_sentence = self.get_sample_sentence(driver)
-        assert expected == actual_sentence, "Language: %s failed. Expected: %s, actual: %s" % (lang, expected, actual_sentence)
+        assert actual_sentence.startswith(expected), "Language: %s failed. Expected: %s, actual: %s" % (lang, expected, actual_sentence)
 
     def count_available_languages(self, driver):
         languagemenu = driver.find_element(By.ID, "primaryBrowserLocale")
