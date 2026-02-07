@@ -47,7 +47,7 @@ cp -r /yocto/test-images/$image_folder tmp/deploy/images/$qemu_machine
 
 sed -i "s/8.8.8.8/192.168.1.59/g" tmp/deploy/images/$qemu_machine/firefox-test-image*conf
 
-coproc qemu { runqemu snapshot "$qemu_machine $qemu_params" > qemu_output 2>&1; }
+coproc qemu { runqemu snapshot $qemu_machine $qemu_params > qemu_output 2>&1; }
 
 TIMEOUT=100
 QEMU_ONLINE="false"
