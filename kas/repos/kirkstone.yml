@@ -8,21 +8,21 @@ header:
 
 repos:
   meta-oe:
-    commit: "7d4507f226bd2af939d4482fb14a809867ece939"
+    commit: "8a598a2bc9199a4fbb9008a32ab143fb509a0933"
   poky:
-    commit: "c942cdb0572ab065a13424aa7482404269ff9554"
+    commit: "58f9b898daef8272184b1be176a18428f9f9d9b3"
   meta-clang:
-    commit: "3d891dbfce07c5ffaf7b6e59c9f3d657ed492bb4"
+    commit: "ba32aef278cd7d0249cfe3c9e8319970f3018ff2"
   meta-lts-mixins:
-    commit: "88ee10acb0de3da6b3107fb7a8617c8cd56420bf"
+    commit: "6baa9afeb88a4a9b4a0e82dd7e3e611438999dbb"
 
 local_conf_header:
   kirkstone: |
     BBMASK += "poky/meta/recipes-devtools/rust"
-    REQUIRED_VERSION_rust = "1.90.0"
-    REQUIRED_VERSION_rust-native = "1.90.0"
-    REQUIRED_VERSION_libstd-rs = "1.90.0"
-    REQUIRED_VERSION_cargo = "1.90.0"
-    REQUIRED_VERSION_cargo-native = "1.90.0"
-    REQUIRED_VERSION_rust-llvm = "1.90.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.90.0"
+    REQUIRED_VERSION_rust = "1.92.0"
+    REQUIRED_VERSION_rust-native = "1.92.0"
+    REQUIRED_VERSION_libstd-rs = "1.92.0"
+    REQUIRED_VERSION_cargo = "1.92.0"
+    REQUIRED_VERSION_cargo-native = "1.92.0"
+    REQUIRED_VERSION_rust-llvm = "1.92.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.92.0"

@@ -8,25 +8,25 @@ header:
 
 repos:
   meta-oe:
-    commit: "2b26d30fc7f478f5735d514f0c1bc28f6a4148b6"
+    commit: "ec0469748be4159fb83fb0fa0148d786484c88cf"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/scarthgap-meta-oe-patches
   poky:
-    commit: "72983ac391008ebceb45edc7a8f0f6d5f4fe715c"
+    commit: "1d54d1c4736a114e1cecbe85a0306e3814d5ce70"
   meta-clang:
-    commit: "5c602337ea1a80fb7217eeda04e396cf90587dca"
+    commit: "613362523f3bf85ff4862e2f1f00113b8d2028be"
   meta-lts-mixins:
-    commit: "00c30d00f7377ee426b017bb46dd8c4c7eeea03b"
+    commit: "c19b6da5a3afd3c892b3b1b44983e993ac6d5308"
 
 local_conf_header:
   scarthgap: |
     BBMASK += "poky/meta/recipes-devtools/rust"
-    REQUIRED_VERSION_rust = "1.90.0"
-    REQUIRED_VERSION_rust-native = "1.90.0"
-    REQUIRED_VERSION_libstd-rs = "1.90.0"
-    REQUIRED_VERSION_cargo = "1.90.0"
-    REQUIRED_VERSION_cargo-native = "1.90.0"
-    REQUIRED_VERSION_rust-llvm = "1.90.0"
-    REQUIRED_VERSION_rust-llvm-native = "1.90.0"
+    REQUIRED_VERSION_rust = "1.92.0"
+    REQUIRED_VERSION_rust-native = "1.92.0"
+    REQUIRED_VERSION_libstd-rs = "1.92.0"
+    REQUIRED_VERSION_cargo = "1.92.0"
+    REQUIRED_VERSION_cargo-native = "1.92.0"
+    REQUIRED_VERSION_rust-llvm = "1.92.0"
+    REQUIRED_VERSION_rust-llvm-native = "1.92.0"

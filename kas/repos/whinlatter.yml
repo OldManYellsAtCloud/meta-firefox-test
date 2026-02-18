@@ -9,12 +9,12 @@ distro: ""
 
 repos:
   meta-oe:
-    commit: "c6849e7529727a2c9eca0f9220836bd0d69ce086"
+    commit: "d28d0a23615f4d91d125fdcd247a71245087dab3"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/whinlatter-meta-oe-patches
   oe-core:
-    commit: "dd10706cfafb5574b7cf316fca2300d166ef71b0"
+    commit: "000a044d285d93ded3280f27360165c943bb5d7e"
   bitbake:
-    commit: "663021740bc086bd959a8457ad9ddb6da52a8278"
+    commit: "7af7e04f3adc8ba144d9e2e6b37ed4ddb3b59df0"
