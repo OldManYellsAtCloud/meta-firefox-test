@@ -24,13 +24,13 @@ is inherited.
 
 Signed-off-by: Gyorgy Sarvari <skandigraun@gmail.com>
 ---
- meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb | 11 ++++++-----
+ meta-oe/recipes-devtools/nodejs/nodejs_20.20.0.bb | 11 ++++++-----
  1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb b/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
+diff --git a/meta-oe/recipes-devtools/nodejs/nodejs_20.20.0.bb b/meta-oe/recipes-devtools/nodejs/nodejs_20.20.0.bb
 index bef62f88eb..eb80b4c10f 100644
---- a/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
-+++ b/meta-oe/recipes-devtools/nodejs/nodejs_20.18.2.bb
+--- a/meta-oe/recipes-devtools/nodejs/nodejs_20.20.0.bb
++++ b/meta-oe/recipes-devtools/nodejs/nodejs_20.20.0.bb
 @@ -9,7 +9,8 @@ DEPENDS = "openssl openssl-native file-replacement-native python3-packaging-nati
  DEPENDS:append:class-target = " qemu-native"
  DEPENDS:append:class-native = " c-ares-native"
