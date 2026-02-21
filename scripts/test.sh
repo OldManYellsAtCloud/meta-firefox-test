@@ -20,6 +20,26 @@ arch=$2
 ff_version=$3
 libc_flavour=$4
 
+patch_meta_oe(){
+  if [ "$yocto_version" != "kirkstone" ]; then
+    return
+  fi
+
+  git -C /yocto/$yocto_version/poky apply /yocto/$yocto_version/meta-firefox-test/files/0*
+}
+
+unpatch_meta_oe(){
+  if [ "$yocto_version" != "kirkstone" ]; then
+    return
+  fi
+
+  git -C /yocto/$yocto_version/poky apply -R /yocto/$yocto_version/meta-firefox-test/files/0*
+}
+
+patch_meta_oe
+
+trap "unpatch_meta_oe" EXIT
+
 if [ -z "$libc_flavour" ]; then
   image_folder=glibc-$yocto_version-$ff_version-$arch
 else

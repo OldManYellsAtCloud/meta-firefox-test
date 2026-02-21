@@ -1,0 +1,82 @@
+From 2ae284b46dd6a4ed41100412944758c4a107ce22 Mon Sep 17 00:00:00 2001
+From: Gyorgy Sarvari <skandigraun@gmail.com>
+Date: Sun, 11 Jan 2026 13:49:44 +0100
+Subject: [PATCH] add python3.14 compatibility
+
+Updating my machine to Python 3.14 broke Kirkstone on a few places.
+This patch backports some changes from bitbake master branch that
+makes it work again.
+
+Signed-off-by: Gyorgy Sarvari <skandigraun@gmail.com>
+---
+ bitbake/lib/bb/__init__.py      | 29 +++++++++++++++++++++++++++++
+ bitbake/lib/bb/asyncrpc/serv.py |  2 +-
+ bitbake/lib/bb/cooker.py        |  2 +-
+ 3 files changed, 31 insertions(+), 2 deletions(-)
+
+diff --git a/bitbake/lib/bb/__init__.py b/bitbake/lib/bb/__init__.py
+index 565f163f5f..0372877d65 100644
+--- a/bitbake/lib/bb/__init__.py
++++ b/bitbake/lib/bb/__init__.py
+@@ -38,6 +38,35 @@ import os
+ import logging
+ 
+ 
++import multiprocessing as mp
++
++# Python 3.14 changes the default multiprocessing context from "fork" to
++# "forkserver". However, bitbake heavily relies on "fork" behavior to
++# efficiently pass data to the child processes. Places that need this should do:
++#   from bb import multiprocessing
++# in place of
++#   import multiprocessing
++
++class MultiprocessingContext(object):
++    """
++    Multiprocessing proxy object that uses the "fork" context for a property if
++    available, otherwise goes to the main multiprocessing module. This allows
++    it to be a drop-in replacement for the multiprocessing module, but use the
++    fork context
++    """
++    def __init__(self):
++        super().__setattr__("_ctx", mp.get_context("fork"))
++
++    def __getattr__(self, name):
++        if hasattr(self._ctx, name):
++            return getattr(self._ctx, name)
++        return getattr(mp, name)
++
++    def __setattr__(self, name, value):
++        raise AttributeError(f"Unable to set attribute {name}")
++
++multiprocessing = MultiprocessingContext()
++
+ class NullHandler(logging.Handler):
+     def emit(self, record):
+         pass
+diff --git a/bitbake/lib/bb/asyncrpc/serv.py b/bitbake/lib/bb/asyncrpc/serv.py
+index e14df18e71..43e94153f5 100644
+--- a/bitbake/lib/bb/asyncrpc/serv.py
++++ b/bitbake/lib/bb/asyncrpc/serv.py
+@@ -11,7 +11,7 @@ import os
+ import signal
+ import socket
+ import sys
+-import multiprocessing
++from bb import multiprocessing
+ from . import chunkify, DEFAULT_MAX_CHUNK
+ 
+ 
+diff --git a/bitbake/lib/bb/cooker.py b/bitbake/lib/bb/cooker.py
+index 2adf4d297d..24a22d2b25 100644
+--- a/bitbake/lib/bb/cooker.py
++++ b/bitbake/lib/bb/cooker.py
+@@ -12,7 +12,7 @@
+ import sys, os, glob, os.path, re, time
+ import itertools
+ import logging
+-import multiprocessing
++from bb import multiprocessing
+ import threading
+ from io import StringIO, UnsupportedOperation
+ from contextlib import closing
