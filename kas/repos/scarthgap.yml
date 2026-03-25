@@ -8,7 +8,7 @@ header:
 
 repos:
   meta-oe:
-    commit: "4d3e2639dec542b58708244662d5ce36810fc510"
+    commit: "06f846a325fde423bb0a6d49d771d8c1e144d7eb"
     patches:
       properties:
         repo: meta-firefox-test
