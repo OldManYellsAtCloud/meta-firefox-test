@@ -76,7 +76,7 @@ langs_ltr = [
     ("tr", "Ctrl+Tab, sekmeler arasında son kullanıldıkları sırayla atlasın"),
     ("cs", "Přepínat panely pomocí Ctrl+Tab v pořadí podle jejich posledního použití"),
     ("szl", "Skrōt Ctrl+Tab przełōnczo karty we raji ôd ôstatnio używanych"),
-    ("el", "Εναλλαγή καρτελών με το Ctrl+Tab σε σειρά πρόσφατης χρήσης"),
+    ("el", "Εναλλαγή καρτελών με τα Ctrl+Tab σε σειρά πρόσφατης χρήσης"),
     ("be", "Ctrl+Tab пераключае паміж карткамі ў парадку апошняга выкарыстання"),
     ("bg", "Ctrl+Tab обикаля разделите в реда на използване"),
     ("ru", "Ctrl+Tab переключает между вкладками в порядке недавнего использования"),
