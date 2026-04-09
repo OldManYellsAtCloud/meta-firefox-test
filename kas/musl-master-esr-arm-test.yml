@@ -13,3 +13,4 @@ local_conf_header:
     IMAGE_NAME = "musl-master-esr-arm"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
     DISTRO_FEATURES += "glvnd x11"
+    DISTRO_FEATURES:remove = "opengl wayland vulkan
