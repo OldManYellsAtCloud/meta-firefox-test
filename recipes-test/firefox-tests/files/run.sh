@@ -14,7 +14,7 @@ if [ $# -ne 1 ]; then
 fi
 
 # the tests should be in the home folder
-cd ~
+cd /home/root
 
 pytest --junitxml=./$1.xml $1/
 

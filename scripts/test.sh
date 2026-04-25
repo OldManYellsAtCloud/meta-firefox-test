@@ -104,7 +104,7 @@ fi
 mkdir -p /yocto/test-images/$image_folder/test-results
 mkdir -p /yocto/$yocto_version/meta-browser/meta-firefox/test-results
 
-scp root@$guest_side_ip:~/*xml /yocto/test-images/$image_folder/test-results
+scp root@$guest_side_ip:/home/root/*xml /yocto/test-images/$image_folder/test-results
 ssh root@$guest_side_ip -o 'BatchMode=yes' /sbin/shutdown -h now
 
 # check if anything has failed
