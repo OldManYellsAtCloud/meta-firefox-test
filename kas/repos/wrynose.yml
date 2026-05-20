@@ -9,12 +9,12 @@ distro: ""
 
 repos:
   meta-oe:
-    commit: "f8787b56f3d67142ab97cc4886afe31fac8b51bc"
+    commit: "420222862f5a6d95023b8f5f3b7e1808b2264ef9"
     patches:
       properties:
         repo: meta-firefox-test
-        path: kas/master-meta-oe-patches
+        path: kas/wrynose-meta-oe-patches
   oe-core:
-    commit: "b3aa1a6419bef653cff710fc3359211daf9f7902"
+    commit: "080e184ad9a07b469da7e8b045a93cefd5bf2438"
   bitbake:
-    commit: "f903a5595c5f22f15530304bd5f058026390c4e2"
+    commit: "0415a00658b59f66bdab22a3558794f238c42973"

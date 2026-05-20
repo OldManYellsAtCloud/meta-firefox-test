@@ -2,12 +2,13 @@ header:
   version: 11
   includes:
     - kas/ff/esr.yml
-    - kas/repos/whinlatter.yml
+    - kas/repos/wrynose.yml
     - kas/common.yml
 
-machine: qemuriscv64
+machine: qemux86-64
 
 local_conf_header:
   image_name: |
-    IMAGE_NAME = "glibc-whinlatter-esr-riscv"
+    IMAGE_NAME = "glibc-wrynose-esr-x86_64"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
+    PACKAGECONFIG:remove:pn-mesa = "libclc"

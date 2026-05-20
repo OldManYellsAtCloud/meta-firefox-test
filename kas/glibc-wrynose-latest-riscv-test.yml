@@ -1,14 +1,13 @@
 header:
   version: 11
   includes:
-    - kas/ff/esr.yml
-    - kas/repos/whinlatter.yml
+    - kas/ff/latest.yml
+    - kas/repos/wrynose.yml
     - kas/common.yml
-    - kas/musl.yml
 
-machine: qemuarm
+machine: qemuriscv64
 
 local_conf_header:
   image_name: |
-    IMAGE_NAME = "musl-whinlatter-esr-arm"
+    IMAGE_NAME = "glibc-wrynose-latest-riscv"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"

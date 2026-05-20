@@ -2,7 +2,7 @@
 
 if [ $# -le 3 ]; then
   echo Usage: $0 yocto_version arch ff_version [lic_flavour]
-  echo E.g. $0 kirkstone aarch64 esr
+  echo E.g. $0 wrynose aarch64 esr
   exit 1
 fi
 
@@ -39,7 +39,7 @@ else
   OPENSBI=""
 fi
 
-if [ "$yocto_version" = "master" -o "$yocto_version" = "whinlatter" ]; then
+if [ "$yocto_version" = "master" -o "$yocto_version" = "wrynose" ]; then
   RUST_LLVM=""
 else
   RUST_LLVM="rust-llvm-native"

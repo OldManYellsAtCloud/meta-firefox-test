@@ -2,12 +2,15 @@ header:
   version: 11
   includes:
     - kas/ff/latest.yml
-    - kas/repos/whinlatter.yml
+    - kas/repos/wrynose.yml
     - kas/common.yml
+    - kas/musl.yml
 
 machine: qemuarm
 
 local_conf_header:
   image_name: |
-    IMAGE_NAME = "glibc-whinlatter-latest-arm"
+    IMAGE_NAME = "musl-wrynose-latest-arm"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
+    DISTRO_FEATURES += "glvnd x11"
+    DISTRO_FEATURES:remove = "opengl wayland vulkan"
