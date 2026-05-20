@@ -3,6 +3,6 @@ header:
 
 repos:
   bitbake:
-    url: git://git.openembedded.org/bitbake.git
+    url: https://git.openembedded.org/bitbake.git
     layers:
       bitbake: disabled

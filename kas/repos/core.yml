@@ -3,6 +3,6 @@ header:
 
 repos:
   oe-core:
-    url: git://git.openembedded.org/openembedded-core.git
+    url: https://git.openembedded.org/openembedded-core.git
     layers:
       meta:
