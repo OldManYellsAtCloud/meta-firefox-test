@@ -9,12 +9,12 @@ distro: ""
 
 repos:
   meta-oe:
-    commit: "f8787b56f3d67142ab97cc4886afe31fac8b51bc"
+    commit: "5d90e6543de4d1c39424956c67ff1925a39bf3c8"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/master-meta-oe-patches
   oe-core:
-    commit: "b3aa1a6419bef653cff710fc3359211daf9f7902"
+    commit: "c2b1410faa150384562bada22c1c8f7c944c7951"
   bitbake:
-    commit: "f903a5595c5f22f15530304bd5f058026390c4e2"
+    commit: "7e6466f48191c1e4ab9b91705deb237eff2c7f01"
