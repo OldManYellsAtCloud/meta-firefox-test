@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ $# -le 3 ]; then
-  echo Usage: $0 yocto_version arch ff_version [libc_flavour]
+if [ $# -ne 3 ]; then
+  echo Usage: $0 yocto_version arch ff_version
   echo E.g. $0 scarthgap x86_64 esr
   exit 1
 fi
@@ -18,13 +18,8 @@ qemu_params_dict["x86-64"]='kvm'
 yocto_version=$1
 arch=$2
 ff_version=$3
-libc_flavour=$4
 
-if [ -z "$libc_flavour" ]; then
-  image_folder=glibc-$yocto_version-$ff_version-$arch
-else
-  image_folder=$libc_flavour-$yocto_version-$ff_version-$arch
-fi
+image_folder=$yocto_version-$ff_version-$arch
 
 qemu_machine=${arch_qemu_dict[$arch]}
 qemu_params="${qemu_params_dict[$arch]}"
@@ -39,13 +34,17 @@ if [ -f /yocto/test-images/$image_folder.done ]; then
   exit 0
 fi
 
+echo Attempting to test: $image_folder
+echo Info file content:
+cat /yocto/test-images/${image_folder}.info
+
 cd /yocto/$yocto_version/poky || cd /yocto/$yocto_version/oe-core
 source oe-init-build-env ../build
 
 rm -rf tmp/deploy/images/$qemu_machine
 cp -r /yocto/test-images/$image_folder tmp/deploy/images/$qemu_machine
 
-sed -i "s/8.8.8.8/192.168.1.59/g" tmp/deploy/images/$qemu_machine/firefox-test-image*conf
+sed -i "s/8.8.8.8/192.168.1.59/g" tmp/deploy/images/$qemu_machine/firefox-*test-image*conf
 
 coproc qemu { runqemu snapshot $qemu_machine $qemu_params > qemu_output 2>&1; }
 

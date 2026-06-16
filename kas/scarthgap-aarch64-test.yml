@@ -1,13 +1,11 @@
 header:
   version: 11
   includes:
-    - kas/ff/latest.yml
     - kas/repos/scarthgap.yml
     - kas/common.yml
-    - kas/musl.yml
 
 machine: qemuarm64
 
 local_conf_header:
   image_name: |
-    IMAGE_NAME = "musl-scarthgap-latest-aarch64"
+    IMAGE_NAME = "glibc-scarthgap-esr-aarch64"
