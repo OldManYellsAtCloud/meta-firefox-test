@@ -1,12 +1,11 @@
 header:
   version: 11
   includes:
-    - kas/ff/esr.yml
     - kas/repos/scarthgap.yml
     - kas/common.yml
 
-machine: qemuriscv64
+machine: qemuarm
 
 local_conf_header:
   image_name: |
-    IMAGE_NAME = "glibc-scarthgap-esr-riscv"
+    IMAGE_NAME = "glibc-scarthgap-esr-arm"

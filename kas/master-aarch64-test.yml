@@ -1,15 +1,12 @@
 header:
   version: 11
   includes:
-    - kas/ff/latest.yml
     - kas/repos/master.yml
     - kas/common.yml
-    - kas/musl.yml
 
-machine: qemux86-64
+machine: qemuarm64
 
 local_conf_header:
   image_name: |
-    IMAGE_NAME = "musl-master-latest-x86_64"
+    IMAGE_NAME = "glibc-master-esr-aarch64"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
-    PACKAGECONFIG:remove:pn-mesa = "libclc"

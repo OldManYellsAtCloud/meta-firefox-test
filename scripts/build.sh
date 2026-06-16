@@ -1,8 +1,11 @@
 #!/bin/bash
 
-if [ $# -le 3 ]; then
-  echo Usage: $0 yocto_version arch ff_version [lic_flavour]
-  echo E.g. $0 wrynose aarch64 esr
+if [ $# -ne 5 ]; then
+  echo Usage: $0 yocto_version arch ff_version libc_flavour toolchain display_system
+  echo E.g. $0 wrynose aarch64 esr glibc wayland
+  echo Available values:
+  echo libc_flavour: glibc, musl
+  echo display_system: wayland, x11
   exit 1
 fi
 
@@ -16,17 +19,17 @@ yocto_version=$1
 arch=$2
 ff_version=$3
 libc_flavour=$4
+display_system=$5
 
-kas_file_name=$yocto_version-$ff_version-$arch
-
-if [ -n "$libc_flavour" ]; then
-  kas_file_name=$libc_flavour-$kas_file_name
-else
-  kas_file_name=glibc-$kas_file_name
-fi
+main_kas_file_name=$yocto_version-$arch
+main_kas_file_path=./meta-firefox-test/kas/${main_kas_file_name}-test.yml
+result_name=$yocto_version-$ff_version-$arch
+libc_file_path=./meta-firefox-test/kas/${libc_flavour}.yml
+ff_file_path=./meta-firefox-test/kas/ff/${ff_version}.yml
+display_file_path=./meta-firefox-test/kas/${display_system}.yml
 
 # check if it needs to be built, if the flag has been set
-if [ -d /yocto/test-images/$kas_file_name ]; then
+if [ -d /yocto/test-images/$result_name ]; then
   echo Image has been already built, exiting.
   exit 0
 fi
@@ -49,8 +52,8 @@ qemu_machine=${arch_qemu_dict[$arch]}
 
 rm -rf ./build/tmp/deploy/images/$qemu_machine
 
-kas checkout --update ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
-kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean rust-native cargo-native libstd-rs firefox \
+kas checkout --update ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} || exit 1
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake -c clean rust-native cargo-native libstd-rs firefox \
          firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-in  firefox-l10n-ms     firefox-l10n-sr \
          firefox-l10n-af           firefox-l10n-en-us  firefox-l10n-hr     firefox-l10n-my     firefox-l10n-sv-se \
          firefox-l10n-an           firefox-l10n-eo     firefox-l10n-hsb    firefox-l10n-nb-no  firefox-l10n-szl \
@@ -72,6 +75,9 @@ kas shell ./meta-firefox-test/kas/$kas_file_name-test.yml -c "bitbake -c clean r
          firefox-l10n-gn           firefox-l10n-lv     firefox-l10n-sl     firefox-l10n-el     firefox-l10n-gu-in \
          firefox-l10n-mk           firefox-l10n-son    firefox-l10n-en-ca  firefox-l10n-he     firefox-l10n-mr \
          firefox-l10n-sq virtual/kernel $OPENSBI $RUST_LLVM" || exit 1
-kas build ./meta-firefox-test/kas/$kas_file_name-test.yml || exit 1
+kas build ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} || exit 1
 
-cp -r ./build/tmp/deploy/images/$qemu_machine /yocto/test-images/$kas_file_name
+cp -r ./build/tmp/deploy/images/$qemu_machine /yocto/test-images/$result_name
+
+echo Libc flavour: ${libc_flavour} >> /yocto/test-images/${result_name}.info
+echo Display system: ${display_system} >> /yocto/test-images/${result_name}.info
