@@ -21,6 +21,12 @@ ff_version=$3
 libc_flavour=$4
 display_system=$5
 
+echo Yocto version: ${yocto_version}
+echo Arch: ${arch}
+echo Firefox version: ${ff_version}
+echo Libc Flavour: ${libc_flavour}
+echo Display system: ${display_system}
+
 main_kas_file_name=$yocto_version-$arch
 main_kas_file_path=./meta-firefox-test/kas/${main_kas_file_name}-test.yml
 result_name=$yocto_version-$ff_version-$arch
@@ -52,6 +58,8 @@ qemu_machine=${arch_qemu_dict[$arch]}
 
 rm -rf ./build/tmp/deploy/images/$qemu_machine
 
+echo Kas config composition: ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}
+
 kas checkout --update ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} || exit 1
 kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake -c clean rust-native cargo-native libstd-rs firefox \
          firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-in  firefox-l10n-ms     firefox-l10n-sr \
@@ -75,6 +83,9 @@ kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file
          firefox-l10n-gn           firefox-l10n-lv     firefox-l10n-sl     firefox-l10n-el     firefox-l10n-gu-in \
          firefox-l10n-mk           firefox-l10n-son    firefox-l10n-en-ca  firefox-l10n-he     firefox-l10n-mr \
          firefox-l10n-sq virtual/kernel $OPENSBI $RUST_LLVM" || exit 1
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake llvm-native"
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake llvm"
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake nodejs-native"
 kas build ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} || exit 1
 
 cp -r ./build/tmp/deploy/images/$qemu_machine /yocto/test-images/$result_name
