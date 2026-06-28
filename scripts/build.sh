@@ -50,6 +50,11 @@ fi
 
 if [ "$yocto_version" = "master" -o "$yocto_version" = "wrynose" ]; then
   RUST_LLVM=""
+  if [ "$arch" = "arm" -a "$libc_flavour" = "musl" -a "$display_system" = "x11" ]; then
+    MUSL_ARM_CORRECTION=":./meta-firefox-test/kas/musl-arm32-distro-features.yml"
+  else
+    MUSL_ARM_CORRECTION=""
+  fi
 else
   RUST_LLVM="rust-llvm-native"
 fi
@@ -58,10 +63,10 @@ qemu_machine=${arch_qemu_dict[$arch]}
 
 rm -rf ./build/tmp/deploy/images/$qemu_machine
 
-echo Kas config composition: ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}
+echo Kas config composition: ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}${MUSL_ARM_CORRECTION}
 
-kas checkout --update ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} || exit 1
-kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake -c clean rust-native cargo-native libstd-rs firefox \
+kas checkout --update ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}${MUSL_ARM_CORRECTION} || exit 1
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}${MUSL_ARM_CORRECTION} -c "bitbake -c clean rust-native cargo-native libstd-rs firefox \
          firefox-l10n-ach          firefox-l10n-en-gb  firefox-l10n-hi-in  firefox-l10n-ms     firefox-l10n-sr \
          firefox-l10n-af           firefox-l10n-en-us  firefox-l10n-hr     firefox-l10n-my     firefox-l10n-sv-se \
          firefox-l10n-an           firefox-l10n-eo     firefox-l10n-hsb    firefox-l10n-nb-no  firefox-l10n-szl \
@@ -83,10 +88,10 @@ kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file
          firefox-l10n-gn           firefox-l10n-lv     firefox-l10n-sl     firefox-l10n-el     firefox-l10n-gu-in \
          firefox-l10n-mk           firefox-l10n-son    firefox-l10n-en-ca  firefox-l10n-he     firefox-l10n-mr \
          firefox-l10n-sq virtual/kernel $OPENSBI $RUST_LLVM" || exit 1
-kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake llvm-native"
-kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake llvm"
-kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} -c "bitbake nodejs-native"
-kas build ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path} || exit 1
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}${MUSL_ARM_CORRECTION} -c "bitbake llvm-native"
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}${MUSL_ARM_CORRECTION} -c "bitbake llvm"
+kas shell ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}${MUSL_ARM_CORRECTION} -c "bitbake nodejs-native"
+kas build ${main_kas_file_path}:${libc_file_path}:${display_file_path}:${ff_file_path}${MUSL_ARM_CORRECTION} || exit 1
 
 cp -r ./build/tmp/deploy/images/$qemu_machine /yocto/test-images/$result_name
 
