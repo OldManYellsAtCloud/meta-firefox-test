@@ -72,7 +72,7 @@ fi
 ssh root@$guest_side_ip -o 'BatchMode=yes' /home/root/run.sh smoke
 
 # run languagetest, if it hasn't been executed yet
-if [ ! -e /yocto/test-images/language-test -a "$ff_version" = "latest" ]; then
+if [ ! -e /yocto/test-images/language-test -a "$ff_version" = "latest" -a "$arch" = "x86-64" ]; then
   ssh root@$guest_side_ip -o 'BatchMode=yes' /home/root/run.sh language
   if [ $? -eq 0 ]; then
     touch /yocto/test-images/language-test
