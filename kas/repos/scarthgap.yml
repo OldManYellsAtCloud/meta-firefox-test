@@ -16,7 +16,7 @@ repos:
   poky:
     commit: "6ccffb86e86b4d41f61dc0c06c2b732c72676537"
   meta-clang:
-    commit: "7cf54f70cebe897d844f649024322bb096d7cb50"
+    commit: "407541071937acb1f7135a6c890ba4e56554d839"
   meta-lts-mixins:
     commit: "c19b6da5a3afd3c892b3b1b44983e993ac6d5308"
 
