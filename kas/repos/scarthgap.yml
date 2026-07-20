@@ -8,13 +8,13 @@ header:
 
 repos:
   meta-oe:
-    commit: "d8cc4e44001c7257273d290ce8c4496e93d32841"
+    commit: "7eb94107580092f79ff1b639a87762fe6f96aa12"
     patches:
       properties:
         repo: meta-firefox-test
         path: kas/scarthgap-meta-oe-patches
   poky:
-    commit: "b56134ff90dec996e8aae45ed7e6ad6b1d5a84a0"
+    commit: "6ccffb86e86b4d41f61dc0c06c2b732c72676537"
   meta-clang:
     commit: "7cf54f70cebe897d844f649024322bb096d7cb50"
   meta-lts-mixins:
