@@ -118,6 +118,7 @@ class Test_firefox:
         fp.set_preference("extensions.enabledScopes", 11)
         options = Options()
         options.profile = fp
+        options.add_argument("--remote-allow-system-access")
         driver = webdriver.Firefox(options = options)
         return driver
 
