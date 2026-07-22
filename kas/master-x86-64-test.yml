@@ -11,3 +11,5 @@ local_conf_header:
     IMAGE_NAME = "glibc-master-esr-x86_64"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
     PACKAGECONFIG:remove:pn-mesa = "libclc"
+    LLVM_TARGETS_GPU:pn-llvm = ""
+    LLVM_TARGETS_GPU:pn-llvm-native = ""

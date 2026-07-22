@@ -10,3 +10,5 @@ local_conf_header:
   image_name: |
     IMAGE_NAME = "glibc-master-esr-arm"
     BBMASK += "meta-browser/meta-firefox/recipes-devtools/rust"
+    LLVM_TARGETS_GPU:pn-llvm = ""
+    LLVM_TARGETS_GPU:pn-llvm-native = ""
